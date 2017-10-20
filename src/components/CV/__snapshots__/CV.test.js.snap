@@ -1,0 +1,937 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`(Components) CV should match the snapshot 1`] = `
+<div
+  className={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <div
+      className={undefined}
+    >
+      <div
+        className={undefined}
+      >
+        <div
+          className={undefined}
+        >
+          <img
+            className={undefined}
+            src="me.png"
+          />
+        </div>
+        <div
+          className={undefined}
+        >
+          <h1
+            className={undefined}
+          >
+            SAVAS VEDOVA
+          </h1>
+          <i
+            className={undefined}
+          >
+            Full stack developer
+          </i>
+        </div>
+      </div>
+      <div
+        className={undefined}
+      >
+        <div
+          className={undefined}
+        >
+          <a
+            href="\`mailto:\${mail}\`"
+          >
+            <span
+              className="fa fa-envelope"
+            />
+            <span>
+              savas@vsk.me
+            </span>
+          </a>
+        </div>
+        <div
+          className={undefined}
+        >
+          <span
+            className="fa fa-map-pin"
+          />
+          <span>
+            Zurich, Switzerland
+          </span>
+        </div>
+        <div
+          className={undefined}
+        >
+          <a
+            href="https://www.facebook.com/savasvedova"
+          >
+            <span
+              className="fa fa-facebook"
+            />
+            <span>
+              Facebook
+            </span>
+          </a>
+        </div>
+        <div
+          className={undefined}
+        >
+          <a
+            href="https://www.instagram.com/savasvedova"
+          >
+            <span
+              className="fa fa-instagram"
+            />
+            <span>
+              Instagram
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className={undefined}
+  >
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        <span
+          className="fa fa-user"
+        />
+        <span
+          className={undefined}
+        >
+          About me
+        </span>
+      </h2>
+      <div
+        className={undefined}
+      >
+        Hello there! I am a self-taught web developer. My elder brother who was a developer back then showed me some cool web pages he created when I was only 12 years old, and since then I developed a passion for programming languages. I am 28 but I remember the old days where we had to write javascript to animate simple dropdown lists, and we used html tables for layouts. I consider myself a very fast learner. I have a huge interest in learning new stuff, keeping myself updated and building personal wisdom. I am very ambitious, positive, easygoing and calm. I like doing sports a lot. Stay fit and be happy. That is what I believe. I used to play soccer some years ago. However, right now, I only go to run and swim. Last but not least, I am very obsessed with writing clean code. I try to make everything readable and consistent. I do like writing doc-blocks to document the functions.
+      </div>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        <span
+          className="fa fa-briefcase"
+        />
+        <span
+          className={undefined}
+        >
+          Work experiences
+        </span>
+      </h2>
+      <div
+        className={undefined}
+      >
+        <div
+          className={undefined}
+        >
+          <div
+            className={undefined}
+          >
+            <h3
+              className={undefined}
+            >
+              Tutti.ch
+            </h3>
+            <div
+              className={undefined}
+            >
+              <i>
+                2017 July
+              </i>
+            </div>
+          </div>
+          <div
+            className={undefined}
+          >
+            <span>
+              I am now working full time for 
+              <a
+                href="https://tutti.ch"
+              >
+                Tutti.ch
+              </a>
+               as a front end developer. The website is one of the most visited websites in Switzerland with more than
+              <b>
+                10 millions
+              </b>
+               of page views every month.
+            </span>
+          </div>
+        </div>
+        <div
+          className={undefined}
+        >
+          <div
+            className={undefined}
+          >
+            <h3
+              className={undefined}
+            >
+              Corpax
+            </h3>
+            <div
+              className={undefined}
+            >
+              <i>
+                2015 October - 2017 June
+              </i>
+            </div>
+          </div>
+          <div
+            className={undefined}
+          >
+            <span>
+              Corpax is a single page team collaboration and communication tool of which I am the idea owner. During the project, as a co-founder:
+            </span>
+            <ul
+              className={undefined}
+            >
+              <li
+                className={undefined}
+              >
+                I helped to prepare the business plan which in return allowed us to get a 
+                <br />
+                <b>
+                  CHF 300'000
+                </b>
+                 grant from CTI.
+              </li>
+              <li
+                className={undefined}
+              >
+                Pitched the project in St. Gallen's Start Summit
+              </li>
+              <li
+                className={undefined}
+              >
+                Developed the whole application using the following technologies:
+                <ul
+                  className={undefined}
+                >
+                  <li
+                    className={undefined}
+                  >
+                    ES6 (Vue.js, Webpack, Babel, Karma, Jasmine)
+                  </li>
+                  <li
+                    className={undefined}
+                  >
+                    Node.js
+                  </li>
+                  <li
+                    className={undefined}
+                  >
+                    Php
+                  </li>
+                  <li
+                    className={undefined}
+                  >
+                    PostgreSQL
+                  </li>
+                  <li
+                    className={undefined}
+                  >
+                    AWS (EC2, RDS, S3)
+                  </li>
+                </ul>
+              </li>
+              <li
+                className={undefined}
+              >
+                Also collaborated closely with 
+                <b>
+                  SUPSI
+                </b>
+                 using an agile development methodology in a team of 5 people, to build a chat bot.
+              </li>
+            </ul>
+            <span>
+              Website: 
+              <a
+                href="https://app.corpax.io"
+                target="_blank"
+              >
+                app.corpax.io
+              </a>
+               (registrations are closed)
+            </span>
+          </div>
+        </div>
+        <div
+          className={undefined}
+        >
+          <div
+            className={undefined}
+          >
+            <h3
+              className={undefined}
+            >
+              RegioPress SA
+            </h3>
+            <div
+              className={undefined}
+            >
+              <i>
+                2013 September - 2015 October
+              </i>
+            </div>
+          </div>
+          <div
+            className={undefined}
+          >
+            <span>
+              During my employment in this company, I developed the official website of
+              <a
+                href="http://laregione.ch"
+                target="_blank"
+              >
+                laRegione
+              </a>
+              , which is one of the 
+              <b>
+                most read
+              </b>
+               newspapers in Ticino, Switzerland.
+            </span>
+            <span>
+              I also created several Wordpress and Drupal websites for an agency that we used to work together. Some of the websites are:
+            </span>
+            <ul
+              className={undefined}
+            >
+              <li
+                className={undefined}
+              >
+                <a
+                  href="http://www.casacosima.ch"
+                  target="_blank"
+                >
+                  casacosima.ch
+                </a>
+              </li>
+              <li
+                className={undefined}
+              >
+                <a
+                  href="http://www.commercianti-bellinzona.ch/"
+                  target="_blank"
+                >
+                  commercianti-bellinzona.ch
+                </a>
+              </li>
+              <li
+                className={undefined}
+              >
+                <a
+                  href="http://masserialabarca.ch/"
+                  target="_blank"
+                >
+                  masserialabarca.ch
+                </a>
+              </li>
+              <li
+                className={undefined}
+              >
+                <a
+                  href="http://www.studiocresto.ch/"
+                  target="_blank"
+                >
+                  studiocresto.ch
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          className={undefined}
+        >
+          <div
+            className={undefined}
+          >
+            <h3
+              className={undefined}
+            >
+              Marketkeyfi.com
+            </h3>
+            <div
+              className={undefined}
+            >
+              <i>
+                2010 April - 2012 May
+              </i>
+            </div>
+          </div>
+          <div
+            className={undefined}
+          >
+            <span>
+              Using C#, me and another developer, developed this tool which is an online platform for shopping from the closest grocery stores in your nearby. You could order from more than 100 groceries in Istanbul. It was my first startup, unfortunately it is no longer online. I was still studying at the same time.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        <span
+          className="fa fa-graduation-cap"
+        />
+        <span
+          className={undefined}
+        >
+          Education
+        </span>
+      </h2>
+      <div
+        className={undefined}
+      >
+        <div
+          className={undefined}
+        >
+          <h3
+            className={undefined}
+          >
+            SUPSI
+          </h3>
+          <h4
+            className={undefined}
+          >
+            <i>
+              Computer Science
+            </i>
+          </h4>
+          <div
+            className={undefined}
+          >
+            2013 - 2014
+          </div>
+          <div
+            className={undefined}
+          >
+            Studied computer science to get a bachelor degree in my field. However, I dropped out once RegioPress decided to finance Corpax.
+          </div>
+        </div>
+        <div
+          className={undefined}
+        >
+          <h3
+            className={undefined}
+          >
+            Bogazici University
+          </h3>
+          <h4
+            className={undefined}
+          >
+            <i>
+              Political Science and International Relations
+            </i>
+          </h4>
+          <div
+            className={undefined}
+          >
+            2007 - 2012
+          </div>
+          <div
+            className={undefined}
+          >
+            Bogazici is one of the best universities in Turkey. My department required to be in the first 700 among 1.5m students in a nation-wide exam. I was the 559th.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        <span
+          className="fa fa-trophy"
+        />
+        <span
+          className={undefined}
+        >
+          Programming, Tools & Frameworks
+        </span>
+      </h2>
+      <div
+        className={undefined}
+      >
+        <div
+          className={undefined}
+        >
+          <div
+            className={undefined}
+          >
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "95%",
+                  }
+                }
+              >
+                Javascript (ES6, Vanilla)
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "95%",
+                  }
+                }
+              >
+                Php7
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "95%",
+                  }
+                }
+              >
+                HTML5/CSS3
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "90%",
+                  }
+                }
+              >
+                SQL (PostgreSQL, MySQL)
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "45%",
+                  }
+                }
+              >
+                Bash
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "70%",
+                  }
+                }
+              >
+                Node.js
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "55%",
+                  }
+                }
+              >
+                Python
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "30%",
+                  }
+                }
+              >
+                C#
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "45%",
+                  }
+                }
+              >
+                Java
+              </div>
+            </div>
+          </div>
+          <div
+            className={undefined}
+          >
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "95%",
+                  }
+                }
+              >
+                React, Redux
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "95%",
+                  }
+                }
+              >
+                Vue, Vuex
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "80%",
+                  }
+                }
+              >
+                Drupal
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "80%",
+                  }
+                }
+              >
+                Wordpress
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "70%",
+                  }
+                }
+              >
+                Bootstrap
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "70%",
+                  }
+                }
+              >
+                Materialize
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "80%",
+                  }
+                }
+              >
+                jQuery
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "90%",
+                  }
+                }
+              >
+                npm/yarn
+              </div>
+            </div>
+            <div
+              className={undefined}
+            >
+              <div
+                className={undefined}
+                style={
+                  Object {
+                    "width": "85%",
+                  }
+                }
+              >
+                git
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        <span
+          className="fa fa-asl-interpreting"
+        />
+        <span
+          className={undefined}
+        >
+          Languages
+        </span>
+      </h2>
+      <div
+        className={undefined}
+      >
+        <div
+          className={undefined}
+          key="English"
+        >
+          <div
+            className={undefined}
+          >
+            English
+          </div>
+          <div
+            className={undefined}
+          >
+            <span
+              className="fa fa-star"
+              key="s-1"
+            />
+            <span
+              className="fa fa-star"
+              key="s-2"
+            />
+            <span
+              className="fa fa-star"
+              key="s-3"
+            />
+            <span
+              className="fa fa-star"
+              key="s-4"
+            />
+            <span
+              className="fa fa-star"
+              key="s-5"
+            />
+          </div>
+        </div>
+        <div
+          className={undefined}
+          key="Italian"
+        >
+          <div
+            className={undefined}
+          >
+            Italian
+          </div>
+          <div
+            className={undefined}
+          >
+            <span
+              className="fa fa-star"
+              key="s-1"
+            />
+            <span
+              className="fa fa-star"
+              key="s-2"
+            />
+            <span
+              className="fa fa-star"
+              key="s-3"
+            />
+            <span
+              className="fa fa-star"
+              key="s-4"
+            />
+            <span
+              className="fa fa-star"
+              key="s-5"
+            />
+          </div>
+        </div>
+        <div
+          className={undefined}
+          key="Turkish"
+        >
+          <div
+            className={undefined}
+          >
+            Turkish
+          </div>
+          <div
+            className={undefined}
+          >
+            <span
+              className="fa fa-star"
+              key="s-1"
+            />
+            <span
+              className="fa fa-star"
+              key="s-2"
+            />
+            <span
+              className="fa fa-star"
+              key="s-3"
+            />
+            <span
+              className="fa fa-star"
+              key="s-4"
+            />
+            <span
+              className="fa fa-star"
+              key="s-5"
+            />
+          </div>
+        </div>
+        <div
+          className={undefined}
+          key="French"
+        >
+          <div
+            className={undefined}
+          >
+            French
+          </div>
+          <div
+            className={undefined}
+          >
+            <span
+              className="fa fa-star"
+              key="s-1"
+            />
+            <span
+              className="fa fa-star"
+              key="s-2"
+            />
+            <span
+              className="fa fa-star"
+              key="s-3"
+            />
+            <span
+              className="fa fa-star-half-full"
+              key="s-4"
+            />
+            <span
+              className="fa fa-star-o"
+              key="s-5"
+            />
+          </div>
+        </div>
+        <div
+          className={undefined}
+          key="German"
+        >
+          <div
+            className={undefined}
+          >
+            German
+          </div>
+          <div
+            className={undefined}
+          >
+            <span
+              className="fa fa-star-half-full"
+              key="s-1"
+            />
+            <span
+              className="fa fa-star-o"
+              key="s-2"
+            />
+            <span
+              className="fa fa-star-o"
+              key="s-3"
+            />
+            <span
+              className="fa fa-star-o"
+              key="s-4"
+            />
+            <span
+              className="fa fa-star-o"
+              key="s-5"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

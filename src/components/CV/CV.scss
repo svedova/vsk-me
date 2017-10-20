@@ -1,0 +1,207 @@
+@import "../../style/vars";
+
+$marginSmall: 1rem;
+$marginLarge: 2rem;
+
+.cv {
+  display: flex;
+
+  .my-history {
+    flex: 1 1 auto;
+    margin-left: $marginLarge;
+  }
+}
+
+.cv-section {
+  margin-bottom: $marginLarge * 2;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sticky-content {
+  &:global.is-sticky {
+    max-width: 300px;
+    padding-right: $marginSmall * 2;
+  }
+}
+
+.my-details {
+  border-radius: 2px;
+  background: white;
+  flex: 0 0 auto;
+  width: 300px;
+  padding: $marginSmall;
+  height: 100%;
+
+  .my {
+    text-align: center;
+    margin-bottom: $marginLarge * 2;
+
+    .my-name {
+      font-size: 1.5rem;
+    }
+  }
+
+  .my-profile-pic {
+    margin-bottom: $marginSmall;
+
+    .my-profile-pic-img {
+      width: 100%;
+    }
+  }
+
+  .my-contact {
+    .my-contact-row {
+      margin-bottom: $marginSmall;
+
+      a {
+        color: black;
+      }
+
+      :global .fa {
+        width: 1.35rem;
+        font-size: 1.5rem;
+        color: $color-gray;
+        margin-right: $marginLarge;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.my-history {
+  border-radius: 2px;
+  flex: 1 1 auto;
+  background-color: white;
+  padding: $marginLarge;
+  height: 100%;
+
+  .section {
+    margin-top: $marginLarge * 2;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .section-header {
+    $color: $color-blue-alt;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    border-bottom: 1px solid rgba($color, 0.35);
+    color: $color;
+
+    :global .fa {
+      flex: 0 0 auto;
+      color: rgba($color, 0.7);
+    }
+
+    .sectionHeaderText {
+      flex: 1 1 auto;
+      text-align: right;
+    }
+  }
+
+  .section-text {
+
+  }
+
+  .education {
+    margin-bottom: 2rem;
+
+    .education-title {
+      font-size: 1.25rem;
+    }
+
+    .education-subtitle {
+      margin-bottom: 0.25rem;
+    }
+
+    .education-date {
+      color: $color-gray;
+      margin-bottom: 0.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .experience:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .experience-title {
+    font-size: 1.25rem;
+  }
+
+  .experience-period {
+    color: $color-gray;
+  }
+
+  .experience-body {
+    margin-top: 0.5rem;
+  }
+
+  .ps {
+    display: flex;
+  }
+
+  .ps-left {
+    flex: 1 1 48%;
+    margin-right: 1%;
+  }
+
+  .ps-right {
+    flex: 1 1 48%;
+    margin-left: 1%;
+  }
+
+  .skill-bar {
+    border-radius: 1rem;
+    border: 1px solid $color-blue-alt;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-bar-bg {
+    padding: 0.2rem 1rem;
+    background-color: $color-blue-alt;
+    font-size: 0.9rem;
+    color: white;
+  }
+
+  .lang {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    :global .fa {
+      color: $color-blue-alt;
+      opacity: 0.5;
+
+      &.fa-star,
+      &.fa-star-half-full {
+        opacity: 1;
+      }
+    }
+  }
+
+  .lang-name {
+    flex: 1 1 auto;
+  }
+
+  .lang-stars {
+    flex: 0 0 auto;
+  }
+}

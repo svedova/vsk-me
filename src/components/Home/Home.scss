@@ -1,0 +1,36 @@
+@import "../../style/mixins";
+
+.container {
+  position: fixed;
+  top: 10rem;
+  left: 50%;
+  margin-left: 20rem;
+  width: 40rem;
+  border-radius: 1rem;
+}
+
+.hire-me {
+  $bottom-distance: 3rem;
+  position: fixed;
+  bottom: $bottom-distance;
+  left: 50%;
+  transition: all .5s ease-out .5s;
+  transform: translate(-50%, calc(100% + 3rem));
+
+  .hire-me-a {
+    display: block;
+    padding: 1rem 4rem;
+    border-bottom: 1px solid white;
+    border-radius: 1px;
+    line-height: 1;
+    width: 30rem;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    @include link-transition();
+  }
+
+  &.trans {
+    transform: translate(-50%, 0);
+  }
+}

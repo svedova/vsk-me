@@ -1,6 +1,6 @@
 /* global describe, test, expect */
 import React from "react"
-import CV from "./CV"
+import CV from "./index"
 import { mount } from "enzyme"
 
 describe("(Components) CV", () => {

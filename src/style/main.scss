@@ -1,7 +1,4 @@
-$header-height: 3.5rem;
-
 @import "./reset";
-@import "./mixins";
 @import "./vars";
 
 *, *:before, *:after {
@@ -25,6 +22,7 @@ h1 {
 
 a {
   text-decoration: none;
+  color: $color-blue-alt;
 }
 
 i, em {

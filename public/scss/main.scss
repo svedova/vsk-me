@@ -1,0 +1,101 @@
+$header-height: 3.5rem;
+
+@import "./reset";
+@import "./mixins";
+@import "./vars";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+i, em {
+  font-style: italic;
+}
+
+strong, b, .bold {
+  font-weight: bold;
+}
+
+ul {
+  padding-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  li {
+    display: list-item;
+    list-style: disc;
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li {
+    li {
+      list-style: square;
+    }
+  }
+}
+
+body {
+  &:before {
+    z-index: -1;
+    $blur: 4px;
+    content: '';
+    filter: blur($blur);
+    // background: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-18.jpg') no-repeat center center fixed;
+    background: url('../images/bg-wallpaper.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: block;
+    left: -$blur - 1px;
+    right: -$blur - 1px;
+    top: -$blur - 1px;
+    bottom: -$blur - 1px;
+    position: fixed;
+    transform: scale(1.1);
+  }
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $header-height;
+  color: white;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+
+  a {
+    display: inline-block;
+    margin: 0 5rem;
+    font-size: 2rem;
+    color: black;
+    @include link-transition();
+
+    &.fa.fa-times {
+      margin: 0;
+    }
+  }
+}

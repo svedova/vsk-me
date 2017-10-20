@@ -1,0 +1,9 @@
+@mixin link-transition () {
+  opacity: 0.4;
+  transition: all .25s ease-in;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}

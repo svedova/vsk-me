@@ -1,0 +1,33 @@
+.contact {
+  background-color: white;
+  margin: 0 auto;
+  max-width: 470px;
+  padding: 3rem;
+  border-radius: 5px;
+
+  .desc {
+    margin-bottom: 1rem;
+  }
+}
+
+.links {
+  line-height: 3;
+
+  :global .fa {
+    margin-right: 1rem;
+    font-size: 2rem;
+    vertical-align: middle;
+  }
+}
+
+.linkedIn :global .fa {
+  color: #0077B5;
+}
+
+.facebook :global .fa {
+  color: #3b5998;
+}
+
+.instagram :global .fa {
+  color: #c5c5c5;
+}

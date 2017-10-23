@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`(Component) Contact should match the snapshot 1`] = `
+<div
+  className={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <span>
+      You can contact me directly from the following social media channels or drop me an email at: 
+    </span>
+    <a
+      href="mailto:savas@vsk.me"
+    >
+      savas@vsk.me
+    </a>
+  </div>
+  <div
+    className={undefined}
+  >
+    <div
+      className={undefined}
+    >
+      <a
+        href="https://www.linkedin.com/in/savas-vedova-1aa66053/"
+        target="_blank"
+      >
+        <span
+          className="fa fa-linkedin-square"
+        />
+        LinkedIn
+      </a>
+    </div>
+    <div
+      className={undefined}
+    >
+      <a
+        href="https://www.facebook.com/savasvedova"
+        target="_blank"
+      >
+        <span
+          className="fa fa-facebook-square"
+        />
+        Facebook
+      </a>
+    </div>
+    <div
+      className={undefined}
+    >
+      <a
+        href="https://www.instagram.com/savasvedova/"
+        target="_blank"
+      >
+        <span
+          className="fa fa-instagram"
+        />
+        Instagram
+      </a>
+    </div>
+  </div>
+</div>
+`;

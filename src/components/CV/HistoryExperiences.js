@@ -20,10 +20,10 @@ export default class HistoryExperiences extends PureComponent {
   renderCorpax() {
     return (
       <Experience title="Corpax" period="2015 October - 2017 June">
-            <span>
-              Corpax is a single page team collaboration and communication tool of which I am the idea owner.
-              During the project, as a co-founder:
-            </span>
+        <span>
+          Corpax is a single page team collaboration and communication tool of which I am the idea owner.
+          During the project, as a co-founder:
+        </span>
         <ul className={classes.sectionList}>
           <li className={classes.sectionListItem}>
             I helped to prepare the business plan which in return
@@ -47,8 +47,6 @@ export default class HistoryExperiences extends PureComponent {
             in a team of 5 people, to build a chat bot.
           </li>
         </ul>
-        <span>Website: <a href="https://app.corpax.io"
-                          target="_blank">app.corpax.io</a> (registrations are closed)</span>
       </Experience>
     )
   }

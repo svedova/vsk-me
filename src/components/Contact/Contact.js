@@ -1,8 +1,13 @@
-import React, { PureComponent } from "react"
+import React, { Component } from "react"
 import classes from "./Contact.scss"
 import Base64 from "../../helpers/base64"
+import CloudFlash from "cloudflash.io-client"
 
-export default class Contact extends PureComponent {
+export default class Contact extends Component {
+  componentDidMount () {
+    CloudFlash.persist()
+  }
+
   render() {
     const mail = Base64.decode("c2F2YXNAdnNrLm1l")
 

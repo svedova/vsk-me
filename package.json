@@ -12,7 +12,7 @@
     "babel-runtime": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
-    "cloudflash.io-client": "../cloudflash.io-client/",
+    "cloudflash.io-client": "file:../cloudflash.io-client",
     "css-loader": "0.28.4",
     "dotenv": "4.0.0",
     "eslint": "4.4.1",
@@ -47,6 +47,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "deploy": "npm run build && ssh vsk rm -rf /var/www/vsk-me-react && scp -r build/ vsk:/var/www/vsk-me-react",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"

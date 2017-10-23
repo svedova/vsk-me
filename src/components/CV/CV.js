@@ -8,12 +8,14 @@ import HistoryEducation from "./HistoryEducation"
 import HistorySkills from "./HistorySkills"
 import HistoryLanguages from "./HistoryLanguages"
 import classes from "./CV.scss"
+import CloudFlash from "cloudflash.io-client"
 
 export default class CV extends Component {
 
   componentDidMount() {
     const root = document.querySelector(`.${classes.stickyContent}`)
     root && sticky(root)
+    CloudFlash.persist()
   }
 
   componentWillUnmount() {

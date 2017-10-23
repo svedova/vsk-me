@@ -25,5 +25,12 @@ $header-height: 3.5rem;
     &.fa.fa-times {
       margin: 0;
     }
+
+
+    &.active {
+      font-weight: bold;
+      color: white;
+      opacity: 0.8;
+    }
   }
 }

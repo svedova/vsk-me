@@ -4,6 +4,7 @@ import Header from "./components/Layout/Header"
 import Home from "./components/Home"
 import CV from "./components/CV"
 import About from "./components/About"
+import Contact from "./components/Contact"
 
 import "./style/main.scss"
 import classes from "./App.scss"
@@ -18,6 +19,7 @@ class App extends PureComponent {
             <Route path="/" component={Home} exact/>
             <Route path="/about" component={About} exact/>
             <Route path="/cv" component={CV} exact/>
+            <Route path="/contact" component={Contact} exact/>
           </div>
         </div>
       </BrowserRouter>

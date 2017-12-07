@@ -9,7 +9,6 @@ export default class HistorySkills extends PureComponent {
     ["React, Redux, Vue, Vuex", 95],
     ["Javascript (ES6, Vanilla)", 95],
     ["Php7", 95],
-    ["HTML5/CSS3", 95],
     ["SQL (PostgreSQL, MySQL)", 90],
     ["Bash", 45],
     ["Node.js", 70],
@@ -17,10 +16,10 @@ export default class HistorySkills extends PureComponent {
   ]
 
   static frameworks = [
-    ["Drupal/Wordpress/jQuery", 80],
     ["GoLang", 65],
+    ["HTML5/CSS3", 95],
+    ["Drupal/Wordpress/jQuery", 80],
     ["Bootstrap/Materialize", 70],
-    ["Npm/Yarn", 90],
     ["Git", 85],
     ["C#", 30],
     ["Java", 45],

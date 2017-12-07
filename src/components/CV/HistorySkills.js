@@ -6,6 +6,7 @@ import classes from "./CV.scss"
 
 export default class HistorySkills extends PureComponent {
   static skills = [
+    ["React, Redux, Vue, Vuex", 95],
     ["Javascript (ES6, Vanilla)", 95],
     ["Php7", 95],
     ["HTML5/CSS3", 95],
@@ -13,20 +14,16 @@ export default class HistorySkills extends PureComponent {
     ["Bash", 45],
     ["Node.js", 70],
     ["Python", 55],
-    ["C#", 30],
-    ["Java", 45],
   ]
 
   static frameworks = [
-    ["React, Redux", 95],
-    ["Vue, Vuex", 95],
-    ["Drupal", 80],
-    ["Wordpress", 80],
-    ["Bootstrap", 70],
-    ["Materialize", 70],
-    ["jQuery", 80],
-    ["npm/yarn", 90],
-    ["git", 85],
+    ["Drupal/Wordpress/jQuery", 80],
+    ["GoLang", 65],
+    ["Bootstrap/Materialize", 70],
+    ["Npm/Yarn", 90],
+    ["Git", 85],
+    ["C#", 30],
+    ["Java", 45],
   ]
 
   render() {

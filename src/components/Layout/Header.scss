@@ -34,3 +34,9 @@ $header-height: 3.5rem;
     }
   }
 }
+
+@media print {
+  .header {
+    display: none;
+  }
+}

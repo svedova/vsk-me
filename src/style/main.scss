@@ -73,3 +73,9 @@ body {
     transform: scale(1.1);
   }
 }
+
+@media print {
+  body:before {
+    background: white;
+  }
+}

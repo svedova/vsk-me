@@ -42,9 +42,9 @@ export default class About extends Component {
         </p>
         <p>
           I am a fullstack developer, although I studied political science and international relations. Programming
-          is my passion since I am 12. Currently, I work as a frontend developer at
+          is my passion since I am 12. Currently, I work as a frontend developer at&nbsp;
           <a href="https://www.tutti.ch">tutti.ch</a>. We are in the process of migrating the old legacy code
-          to React. I stepped in exactly on the right time, as I love single page applications.
+          to React. I stepped in exactly on the right time as I love single page applications.
         </p>
         <p>
           I realized that I could talk (write in this case) for hours as apparently I have a lot to tell. Maybe

@@ -43,6 +43,20 @@ exports[`(Components) CV should match the snapshot 1`] = `
           className={undefined}
         >
           <a
+            href="https://vsk.me"
+          >
+            <span
+              className="fa fa-globe"
+            />
+            <span>
+              https://vsk.me
+            </span>
+          </a>
+        </div>
+        <div
+          className={undefined}
+        >
+          <a
             href="\`mailto:\${mail}\`"
           >
             <span
@@ -109,13 +123,16 @@ exports[`(Components) CV should match the snapshot 1`] = `
         <span
           className={undefined}
         >
-          About me
+          Summary
         </span>
       </h2>
       <div
         className={undefined}
       >
-        Hello there! I am a self-taught web developer. My elder brother who was a developer back then showed me some cool web pages he created when I was only 12 years old, and since then I developed a passion for programming languages. I am 28 but I remember the old days where we had to write javascript to animate simple dropdown lists, and we used html tables for layouts. I consider myself a very fast learner. I have a huge interest in learning new stuff, keeping myself updated and building personal wisdom. I am very ambitious, positive, easygoing and calm. I like doing sports a lot. Stay fit and be happy. That is what I believe. I used to play soccer some years ago. However, right now, I only go to run and swim. Last but not least, I am very obsessed with writing clean code. I try to make everything readable and consistent. I do like writing doc-blocks to document the functions.
+        Being a self-taught passionate programmer, during the recent years I have developed an extreme interest into single page apps. Lately, I've been experimenting with Golang as well, as its API-based architecture complements the backend for SPAs.
+        <br />
+        <br />
+        During my professional career as a programmer, I had to deal with complex databases (including setting up), writing backend APIs and frontend for several websites.
       </div>
     </div>
     <div
@@ -165,11 +182,30 @@ exports[`(Components) CV should match the snapshot 1`] = `
               >
                 Tutti.ch
               </a>
-               as a front end developer. The website is one of the most visited websites in Switzerland with more than
+               as a frontend developer. The website is one of the most visited websites in Switzerland with more than 
               <b>
-                10 millions
+                15 millions
               </b>
-               of page views every month.
+               monthly page views. In only 5 months I've accomplished the following tasks:
+              <ul
+                className={undefined}
+              >
+                <li
+                  className={undefined}
+                >
+                  Rewrote the whole routing of the frontend (migrate from React Router v2 to v4)
+                </li>
+                <li
+                  className={undefined}
+                >
+                  Migrated the remaining legacy code to React.
+                </li>
+                <li
+                  className={undefined}
+                >
+                  Led the project to server side render the whole website (it is right now in the process of being tested).
+                </li>
+              </ul>
             </span>
           </div>
         </div>
@@ -260,16 +296,6 @@ exports[`(Components) CV should match the snapshot 1`] = `
                  using an agile development methodology in a team of 5 people, to build a chat bot.
               </li>
             </ul>
-            <span>
-              Website: 
-              <a
-                href="https://app.corpax.io"
-                target="_blank"
-              >
-                app.corpax.io
-              </a>
-               (registrations are closed)
-            </span>
           </div>
         </div>
         <div

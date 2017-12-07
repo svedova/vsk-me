@@ -12,6 +12,12 @@ export default class MyContact extends PureComponent {
     return (
       <div className={classes.myContact}>
         <div className={classes.myContactRow}>
+          <a href="https://vsk.me">
+            <span className="fa fa-globe"/>
+            <span>https://vsk.me</span>
+          </a>
+        </div>
+        <div className={classes.myContactRow}>
           <a href="`mailto:${mail}`">
             <span className="fa fa-envelope"/>
             <span>{mail}</span>

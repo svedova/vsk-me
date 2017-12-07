@@ -7,22 +7,14 @@ export default class HistoryAbout extends PureComponent {
   render() {
     return (
       <div className={classes.section}>
-        <SectionHeader fa="fa-user">About me</SectionHeader>
+        <SectionHeader fa="fa-user">Summary</SectionHeader>
         <SectionText>
-          Hello there! I am a self-taught web developer. My elder brother who was a developer back then showed me some
-          cool
-          web pages he created when I was only 12 years old, and since then I developed a passion for programming
-          languages.
-          I am 28 but I remember the old days where we had to write javascript to animate simple dropdown lists, and we
-          used html tables for layouts. I consider myself a very fast learner. I have a huge interest in learning new
-          stuff,
-          keeping myself updated and building personal wisdom. I am very ambitious, positive, easygoing and calm.
-          I like doing sports a lot. Stay fit and be happy. That is what I believe. I used to play soccer some years
-          ago.
-          However, right now, I only go to run and swim.
-          Last but not least, I am very obsessed with writing clean code. I try to make everything readable and
-          consistent.
-          I do like writing doc-blocks to document the functions.
+          Being a self-taught passionate programmer, during the recent years I have developed an extreme
+          interest into single page apps. Lately, I've been experimenting with Golang as well,
+          as its API-based architecture complements the backend for SPAs.
+          <br /><br />
+          During my professional career as a programmer, I had to deal with complex databases (including setting
+          up), writing backend APIs and frontend for several websites.
         </SectionText>
       </div>
     )

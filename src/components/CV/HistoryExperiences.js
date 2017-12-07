@@ -9,9 +9,21 @@ export default class HistoryExperiences extends PureComponent {
     return (
       <Experience title="Tutti.ch" period="2017 July">
         <span>
-          I am now working full time for <a href="https://tutti.ch">Tutti.ch</a> as a front end developer.
-          The website is one of the most visited websites in Switzerland with more than
-          <b>10 millions</b> of page views every month.
+          I am now working full time for <a href="https://tutti.ch">Tutti.ch</a> as a frontend developer.
+          The website is one of the most visited websites in Switzerland with more than&nbsp;
+          <b>15 millions</b> monthly page views. In only 5 months I've accomplished the following tasks:
+          <ul className={classes.sectionList}>
+            <li className={classes.sectionListItem}>
+              Rewrote the whole routing of the frontend (migrate from React Router v2 to v4)
+            </li>
+            <li className={classes.sectionListItem}>
+              Migrated the remaining legacy code to React.
+            </li>
+            <li className={classes.sectionListItem}>
+              Led the project to server side render the whole website (it is right now in the process of being
+              tested).
+            </li>
+          </ul>
         </span>
       </Experience>
     )

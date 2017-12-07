@@ -130,6 +130,14 @@ $marginLarge: 2rem;
     }
   }
 
+  @media print {
+    // Hack for page split
+    .experience:nth-child(2),
+    .experience:nth-child(4) {
+      margin-top: 6rem;
+    }
+  }
+
   .experience:not(:last-child) {
     margin-bottom: 2rem;
   }

@@ -67,7 +67,7 @@ export default class HistoryExperiences extends PureComponent {
     return (
       <Experience title="RegioPress SA" period="2013 September - 2015 October">
         <span>
-          During my employment in this company, I developed the official website of
+          During my employment in this company, I developed the official website of&nbsp;
           <a href="http://laregione.ch" target="_blank">laRegione</a>, which is
           one of the <b>most read</b> newspapers in Ticino, Switzerland.
         </span>
@@ -76,6 +76,9 @@ export default class HistoryExperiences extends PureComponent {
           agency that we used to work together. Some of the websites are:
         </span>
         <ul className={classes.sectionList}>
+          <li className={classes.sectionListItem}>
+            <a href="https://www.laregione.ch/" target="_blank">laRegione.ch</a>
+          </li>
           <li className={classes.sectionListItem}>
             <a href="http://www.casacosima.ch" target="_blank">casacosima.ch</a>
           </li>

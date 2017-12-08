@@ -14,6 +14,9 @@ export default class HistoryExperiences extends PureComponent {
           <b>15 millions</b> monthly page views. In only 5 months I've accomplished the following tasks:
           <ul className={classes.sectionList}>
             <li className={classes.sectionListItem}>
+              Increased test coverage from 0% to 44%.
+            </li>
+            <li className={classes.sectionListItem}>
               Rewrote the whole routing of the frontend (migrate from React Router v2 to v4)
             </li>
             <li className={classes.sectionListItem}>

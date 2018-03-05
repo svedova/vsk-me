@@ -1,15 +1,15 @@
-import React, { PureComponent } from "react"
-import PropTypes from "prop-types"
-import classes from "./CV.scss"
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import classes from "./CV.scss";
 
 export default class Skill extends PureComponent {
   static propTypes = {
     name: PropTypes.string, // The skill name
     perc: PropTypes.number // The skill percentage
-  }
+  };
 
   render() {
-    const { name, perc } = this.props
+    const { name, perc } = this.props;
 
     return (
       <div className={classes.skillBar}>
@@ -17,6 +17,6 @@ export default class Skill extends PureComponent {
           {name}
         </div>
       </div>
-    )
+    );
   }
 }

@@ -1,12 +1,7 @@
 import React, { Component } from "react"
 import classes from "./About.scss"
-import CloudFlash from "cloudflash.io-client"
 
 export default class About extends Component {
-  componentDidMount () {
-    CloudFlash.persist()
-  }
-
   render () {
     return (
       <article className={classes.pageContent}>

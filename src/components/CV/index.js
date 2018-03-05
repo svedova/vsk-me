@@ -1,1 +1,1 @@
-export { default } from "./CV"
+export { default } from "./CV";

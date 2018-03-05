@@ -11,7 +11,7 @@ export default class HistorySkills extends PureComponent {
     ["HTML5/CSS3", 95],
     ["Node.js", 85],
     ["GoLang", 65],
-    ["AWS (Lambda, EC2, API GW, Route53, S3)"]
+    ["AWS (Lambda, API GW, S3, EC2, Route53)", 90],
   ];
 
   static frameworks = [

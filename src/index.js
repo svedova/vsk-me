@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-ReactDOM.hydrate(<App />, document.getElementById('root'));
-// registerServiceWorker();
+const func = typeof window.__INITIAL_STATE__ !== "undefined" ? "hydrate" : "render";
+ReactDOM[func](App(), document.getElementById("root"));

@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { sticky, unsticky } from "sticky-content";
+import Helmet from "react-helmet";
 import MyProfile from "./MyProfile";
 import MyContact from "./MyContact";
 import HistoryAbout from "./HistoryAbout";
@@ -21,21 +22,30 @@ export default class CV extends Component {
 
   render() {
     return (
-      <div className={classes.cv}>
-        <div className={classes.myDetails}>
-          <div className={classes.stickyContent}>
-            <MyProfile />
-            <MyContact />
+      <Fragment>
+        <Helmet>
+          <title>Vsk.me | Savas Vedova CV</title>
+          <meta
+            name={"description"}
+            content={"The curriculum vitae of Savas Vedova"}
+          />
+        </Helmet>
+        <div className={classes.cv}>
+          <div className={classes.myDetails}>
+            <div className={classes.stickyContent}>
+              <MyProfile />
+              <MyContact />
+            </div>
+          </div>
+          <div className={classes.myHistory}>
+            <HistoryAbout />
+            <HistoryExperiences />
+            <HistoryEducation />
+            <HistorySkills />
+            <HistoryLanguages />
           </div>
         </div>
-        <div className={classes.myHistory}>
-          <HistoryAbout />
-          <HistoryExperiences />
-          <HistoryEducation />
-          <HistorySkills />
-          <HistoryLanguages />
-        </div>
-      </div>
+      </Fragment>
     );
   }
 }

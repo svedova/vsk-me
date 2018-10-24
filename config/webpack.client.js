@@ -25,7 +25,7 @@ module.exports = {
     filename: isDev ? undefined : "client.[hash].js",
     chunkFilename: "[name].[chunkhash].js",
     path: path.join(root, "dist"), // The path to the bundle directory
-    publicPath: "/" // Tell webpack to server always from the root
+    publicPath: process.env.PUBLIC_PATH || "/" // Tell webpack to server always from the root
   },
 
   // @see https://webpack.js.org/configuration/resolve/
@@ -115,7 +115,7 @@ module.exports = {
       new ExtractCSSChunks({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
-        filename: "s-[name].[contenthash].css"
+        filename: "[name].[contenthash].css"
       }),
 
     // The server will handle injecting files by itself.
@@ -123,11 +123,13 @@ module.exports = {
       isDev
         ? {
             inject: true,
-            template: path.join(root, "public/index.html")
+            template: path.join(root, "public/index.html"),
           }
         : {
             inject: true,
             template: path.join(root, "public/index.html"),
+            content: "{{content}}",
+            head: "{{head}}",
             minify: {
               removeComments: true,
               collapseWhitespace: true,

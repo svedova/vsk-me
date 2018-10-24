@@ -37,6 +37,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-helmet": "^5.2.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "resolve-url-loader": "^2.3.0",
@@ -53,11 +54,11 @@
     "enzyme-to-json": "^3.1.4",
     "node-sass": "^4.9.0",
     "raf": "^3.4.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "webpack-merge": "^4.1.4"
   },
   "scripts": {
     "deploy": "npm run build && ssh vsk rm -rf /var/www/vsk-me-react && scp -r build/ vsk:/var/www/vsk-me-react",
-    "stormkit": "stormkit --skip-build",
     "start": "node scripts/dev.js",
     "build": "node scripts/prod.js",
     "test": "node scripts/test.js --env=jsdom"

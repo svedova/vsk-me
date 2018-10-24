@@ -9,8 +9,7 @@ process.env.PORT = process.env.PORT || 3000;
 const chalk = require("chalk");
 const webpack = require("webpack");
 const config = require("../config/webpack.client");
-const server = require("../config/webpack.server");
-const compiler = webpack([config, server].filter(i => i));
+const compiler = webpack(config);
 
 compiler.run((err, stats) => {
   if (err) {

@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { BrowserRouter, StaticRouter, Route, Switch } from "react-router-dom";
-import { RouterConfig } from "stormkit-io";
+import { Route, Switch, StaticRouter, BrowserRouter } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import Home from "./components/Home";
 import CV from "./components/CV";
@@ -9,22 +8,40 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import "./style/main.scss";
 import classes from "./App.scss";
+import Helmet from "react-helmet";
 
-const routes = RouterConfig([
+export const routes = [
   { path: "/", component: Home, exact: true },
   { path: "/about", component: About, exact: true },
   { path: "/cv", component: CV, exact: true },
   { path: "/contact", component: Contact, exact: true }
-]);
+];
 
-class App extends PureComponent {
+export default class App extends PureComponent {
+  static defaultProps = {
+    Router: BrowserRouter
+  };
+
   static propTypes = {
     Router: PropTypes.func
   };
 
+  static renderer = async (context, render) => {
+    if (context.route && context.route.setup) {
+      await context.route.setup(context);
+    }
+
+    const router = props => <StaticRouter {...props} context={context} />;
+    const body = render(<App Router={router} />);
+    const data = Helmet.renderStatic();
+    const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore
+
+    return { body, head, headers: {} };
+  };
+
   render() {
     return (
-      <BrowserRouter>
+      <App.Router>
         <div className={classes.wrapper}>
           <Header />
           <div className={classes.page}>
@@ -35,25 +52,7 @@ class App extends PureComponent {
             </Switch>
           </div>
         </div>
-      </BrowserRouter>
+      </App.Router>
     );
   }
 }
-
-/**
- *
- * @param {*|=} context
- * @param {*|=} location
- * @return {*}
- */
-export default ({ context, location } = {}) => {
-  // Define the Router
-  const Router =
-    typeof window === "undefined"
-      ? props => (
-          <StaticRouter {...props} context={context} location={location} />
-        )
-      : BrowserRouter;
-
-  return <App Router={Router} />;
-};

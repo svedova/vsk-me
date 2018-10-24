@@ -40,8 +40,10 @@ export default class App extends PureComponent {
   };
 
   render() {
+    const { Router } = this.props;
+
     return (
-      <App.Router>
+      <Router>
         <div className={classes.wrapper}>
           <Header />
           <div className={classes.page}>
@@ -52,7 +54,7 @@ export default class App extends PureComponent {
             </Switch>
           </div>
         </div>
-      </App.Router>
+      </Router>
     );
   }
 }

@@ -49,7 +49,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: "file-loader",
         options: {
-          name: () => (!isDev ? "[hash:base64:5].[ext]" : "[path][name].[ext]")
+          name: () => (!isDev ? "/[hash:base64:5].[ext]" : "[path][name].[ext]")
         }
       },
       {

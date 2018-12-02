@@ -49,7 +49,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: "file-loader",
         options: {
-          name: () => (!isDev ? "/[hash:base64:5].[ext]" : "[path][name].[ext]")
+          name: () => (!isDev ? "[hash:base64:5].[ext]" : "[path][name].[ext]")
         }
       },
       {
@@ -123,7 +123,7 @@ module.exports = {
       isDev
         ? {
             inject: true,
-            template: path.join(root, "public/index.html"),
+            template: path.join(root, "public/index.html")
           }
         : {
             inject: true,

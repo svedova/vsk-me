@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractCSSChunks = require("extract-css-chunks-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 // Helper variables
 const env = process.env.NODE_ENV || "production";
@@ -112,6 +113,14 @@ module.exports = {
     }),
 
     !isDev &&
+      new CopyWebpackPlugin([
+        {
+          from: path.join(root, "public/favicon.png"),
+          to: path.join(root, "dist/favicon.png")
+        }
+      ]),
+
+    !isDev &&
       new ExtractCSSChunks({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
@@ -123,7 +132,8 @@ module.exports = {
       isDev
         ? {
             inject: true,
-            template: path.join(root, "public/index.html")
+            template: path.join(root, "public/index.html"),
+            publicPath: process.env.PUBLIC_PATH
           }
         : {
             inject: true,

@@ -132,14 +132,14 @@ module.exports = {
       isDev
         ? {
             inject: true,
-            template: path.join(root, "public/index.html"),
-            publicPath: process.env.PUBLIC_PATH
+            template: path.join(root, "public/index.html")
           }
         : {
             inject: true,
             template: path.join(root, "public/index.html"),
             content: "{{content}}",
             head: "{{head}}",
+            publicPath: process.env.PUBLIC_PATH,
             minify: {
               removeComments: true,
               collapseWhitespace: true,

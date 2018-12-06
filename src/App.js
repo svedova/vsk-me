@@ -31,7 +31,13 @@ export default class App extends PureComponent {
       await context.route.setup(context);
     }
 
-    const router = props => <StaticRouter {...props} context={context} />;
+    const router = props => (
+      <StaticRouter
+        {...props}
+        context={context}
+        location={context.request.path}
+      />
+    );
     const body = render(<App Router={router} />);
     const data = Helmet.renderStatic();
     const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore

@@ -38,12 +38,13 @@ export default class HistoryExperiences extends PureComponent {
   renderCorpax() {
     return (
       <Experience
-        title="Corpax, Fullstack Engineer"
+        title="RegioPress SA/Corpax, Fullstack Engineer"
         period="2015 October - 2017 June"
       >
         <span>
-          Corpax is a single page team collaboration and communication tool of
-          which I am the idea owner. During the project, as a co-founder:
+          Corpax was a spinoff funded by RegioPress. It was a single page team
+          collaboration and communication (similar to Slack/Trello). Failed
+          after 2 years. During that time:
         </span>
         <ul className={classes.sectionList}>
           <li className={classes.sectionListItem}>
@@ -86,7 +87,8 @@ export default class HistoryExperiences extends PureComponent {
           of&nbsp;
           <a href="http://laregione.ch" target="_blank">
             laRegione
-          </a>, which is one of the <b>most read</b> newspapers in Ticino,
+          </a>
+          , which is one of the <b>most read</b> newspapers in Ticino,
           Switzerland.
         </span>
         <span>

@@ -1,3 +1,6 @@
 credentials:
   secret: vkoak91kf8aFacz9zm1310afzAvx0a0-z
   clientId: 118030623537
+
+build:
+  app: src/renderer.js

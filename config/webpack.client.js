@@ -47,6 +47,13 @@ module.exports = {
         }
       },
       {
+        test: /\.txt$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "raw-loader"
+        }
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: "file-loader",
         options: {

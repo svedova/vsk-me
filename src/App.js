@@ -20,7 +20,7 @@ export default class App extends PureComponent {
     const { Router } = this.props;
 
     return (
-      <Router>
+      <React.Fragment>
         <Helmet>
           <title>Personal Blog | Savas Vedova</title>
           <meta
@@ -30,27 +30,32 @@ export default class App extends PureComponent {
             }
           />
         </Helmet>
-        <div className={classes.wrapper}>
-          <Header />
-          <div className={classes.page}>
-            <Switch>
-              {routes.map(r => (
-                <Route {...r} key={r.path} />
-              ))}
-              <Route
-                path="*"
-                render={() => (
-                  <h1
-                    style={{ textAlign: "center", margin: "5rem auto 0 auto" }}
-                  >
-                    Whoops! Nothing found here.
-                  </h1>
-                )}
-              />
-            </Switch>
+        <Router>
+          <div className={classes.wrapper}>
+            <Header />
+            <div className={classes.page}>
+              <Switch>
+                {routes.map(r => (
+                  <Route {...r} key={r.path} />
+                ))}
+                <Route
+                  path="*"
+                  render={() => (
+                    <h1
+                      style={{
+                        textAlign: "center",
+                        margin: "5rem auto 0 auto"
+                      }}
+                    >
+                      Whoops! Nothing found here.
+                    </h1>
+                  )}
+                />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </React.Fragment>
     );
   }
 }

@@ -3,7 +3,7 @@ import CV from "../components/CV";
 import About from "../components/About";
 import Contact from "../components/Contact";
 
-export const routes = [
+export default [
   { path: "/", component: Home, exact: true },
   { path: "/about", component: About, exact: true },
   { path: "/cv", component: CV, exact: true },

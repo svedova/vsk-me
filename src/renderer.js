@@ -4,12 +4,31 @@ import Helmet from "react-helmet";
 import App from "./App";
 import routes from "./routes/server";
 
+const setup = async context => {
+  try {
+    const resp = await context.route.setup(context);
+
+    if (typeof resp === "object" && resp.body) {
+      return resp;
+    }
+  } catch (e) {
+    return {
+      status: 500,
+      body: "Something went wrong..."
+    };
+  }
+};
+
 export default {
   routes,
 
   renderer: async (context, render) => {
     if (context.route && context.route.setup) {
-      await context.route.setup(context);
+      const resp = await setup(context);
+
+      if (resp) {
+        return resp;
+      }
     }
 
     const router = props => (

@@ -5,7 +5,7 @@ import App from "./App";
 
 export { default as routes } from "./routes/server";
 
-export const renderer = async (context, render) => {
+export default async (context, render) => {
   if (context.route && context.route.setup) {
     await context.route.setup(context);
   }

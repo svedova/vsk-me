@@ -27,6 +27,16 @@ export default class App extends PureComponent {
               {routes.map(r => (
                 <Route {...r} key={r.path} />
               ))}
+              <Route
+                path="*"
+                render={() => (
+                  <h1
+                    style={{ textAlign: "center", margin: "5rem auto 0 auto" }}
+                  >
+                    Whoops! Nothing found here.
+                  </h1>
+                )}
+              />
             </Switch>
           </div>
         </div>

@@ -23,12 +23,18 @@ export default {
   routes,
 
   renderer: async (context, render) => {
+    let status = 200;
+
     if (context.route && context.route.setup) {
       const resp = await setup(context);
 
       if (resp) {
         return resp;
       }
+    }
+
+    if (!context.route) {
+      status = 404;
     }
 
     const router = props => (
@@ -43,6 +49,6 @@ export default {
     const data = Helmet.renderStatic();
     const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore
 
-    return { body, head, headers: {} };
+    return { body, head, headers: {}, status };
   }
 };

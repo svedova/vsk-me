@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
+import Helmet from "react-helmet";
 import Header from "./components/Layout/Header";
 import "./style/main.scss";
 import classes from "./App.scss";
@@ -20,6 +21,15 @@ export default class App extends PureComponent {
 
     return (
       <Router>
+        <Helmet>
+          <title>Personal Blog | Savas Vedova</title>
+          <meta
+            name={"description"}
+            content={
+              "Simple personal home page written in react.js. A bit about me and my projects."
+            }
+          />
+        </Helmet>
         <div className={classes.wrapper}>
           <Header />
           <div className={classes.page}>

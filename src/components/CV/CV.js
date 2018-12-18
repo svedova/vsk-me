@@ -24,7 +24,7 @@ export default class CV extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Vsk.me | Savas Vedova CV</title>
+          <title>Curriculum Vitae | Savas Vedova</title>
           <meta
             name={"description"}
             content={"The curriculum vitae of Savas Vedova"}

@@ -22,10 +22,11 @@ const setup = async context => {
 export default {
   routes,
 
-  renderer: async (context, render) => {
+  renderer: async (req, res) => {
     let status = 200;
+    const context = {};
 
-    if (context.route && context.route.setup) {
+    if (req.route && req.route.setup) {
       const resp = await setup(context);
 
       if (resp) {
@@ -33,7 +34,7 @@ export default {
       }
     }
 
-    if (!context.route) {
+    if (!req.route) {
       status = 404;
     }
 
@@ -45,10 +46,10 @@ export default {
       />
     );
 
-    const body = render(<App Router={router} />);
+    const body = res.render(<App Router={router} />);
     const data = Helmet.renderStatic();
     const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore
 
-    return { body, head, headers: {}, status };
+    return res.send({ body, head, headers: {}, status });
   }
 };

@@ -39,11 +39,7 @@ export default {
     }
 
     const router = props => (
-      <StaticRouter
-        {...props}
-        context={context}
-        location={context.request.path}
-      />
+      <StaticRouter {...props} context={context} location={req.path} />
     );
 
     const body = res.render(<App Router={router} />);

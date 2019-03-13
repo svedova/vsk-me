@@ -1,5 +1,7 @@
 import React from "react";
+import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
+import { matchPath } from "react-router-dom";
 import Helmet from "react-helmet";
 import App from "./App";
 import routes from "./routes/server";
@@ -19,33 +21,31 @@ const setup = async context => {
   }
 };
 
-export default {
-  routes,
+export default async (req, res) => {
+  let status = 200;
+  const context = {
+    route: routes.find(r => matchPath(req.path, r))
+  };
 
-  renderer: async (req, res) => {
-    let status = 200;
-    const context = {};
+  if (context.route && context.route.setup) {
+    const resp = await setup(context);
 
-    if (req.route && req.route.setup) {
-      const resp = await setup(context);
-
-      if (resp) {
-        return resp;
-      }
+    if (resp) {
+      return res.send(resp);
     }
-
-    if (!req.route) {
-      status = 404;
-    }
-
-    const router = props => (
-      <StaticRouter {...props} context={context} location={req.path} />
-    );
-
-    const body = res.render(<App Router={router} />);
-    const data = Helmet.renderStatic();
-    const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore
-
-    return res.send({ body, head, headers: {}, status });
   }
+
+  if (!context.route) {
+    status = 404;
+  }
+
+  const router = props => (
+    <StaticRouter {...props} context={context} location={req.path} />
+  );
+
+  const body = renderToString(<App Router={router} />);
+  const data = Helmet.renderStatic();
+  const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore
+
+  return res.send({ body: { content: body, head }, headers: {}, status });
 };

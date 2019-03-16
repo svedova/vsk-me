@@ -26,7 +26,7 @@ module.exports = {
     filename: isDev ? undefined : "client.[hash].js",
     chunkFilename: "[name].[chunkhash].js",
     path: path.join(root, "dist"), // The path to the bundle directory
-    publicPath: process.env.PUBLIC_PATH || "/" // Tell webpack to server always from the root
+    publicPath: process.env.PUBLIC_URL || "/" // Tell webpack to server always from the root
   },
 
   // @see https://webpack.js.org/configuration/resolve/
@@ -146,7 +146,7 @@ module.exports = {
             template: path.join(root, "public/index.html"),
             content: "{{content}}",
             head: "{{head}}",
-            publicPath: process.env.PUBLIC_PATH,
+            publicPath: process.env.PUBLIC_URL,
             minify: {
               removeComments: true,
               collapseWhitespace: true,

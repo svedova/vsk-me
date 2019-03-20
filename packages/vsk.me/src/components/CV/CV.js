@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { sticky, unsticky } from "sticky-content";
+import { sticky, unsticky } from "../../helpers/sticky";
 import Helmet from "react-helmet";
 import MyProfile from "./MyProfile";
 import MyContact from "./MyContact";

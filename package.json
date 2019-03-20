@@ -13,5 +13,10 @@
   "scripts": {
     "build:www": "cd packages/vsk.me && yarn build",
     "build:blog": "cd packages/blog.vsk.me && yarn build"
+  },
+  "dependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "^2.1.8"
   }
 }

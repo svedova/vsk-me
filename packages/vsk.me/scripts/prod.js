@@ -18,5 +18,5 @@ compiler.run((err, stats) => {
   }
 
   console.log(chalk.green("Compiled successfully.\n"));
-  console.log(stats.toString());
+  console.log(stats.toString({ chunks: false, children: false }));
 });

@@ -11,6 +11,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build:www": "cd packages/vsk.me && yarn build"
+    "build:www": "cd packages/vsk.me && yarn build",
+    "build:blog": "cd packages/blog.vsk.me && yarn build"
   }
 }

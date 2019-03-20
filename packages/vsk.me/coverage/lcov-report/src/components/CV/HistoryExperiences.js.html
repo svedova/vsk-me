@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/CV/HistoryExperiences.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/CV</a> HistoryExperiences.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>5/5</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { PureComponent } from "react"
+import SectionHeader from "./SectionHeader"
+import SectionText from "./SectionText"
+import Experience from "./HistoryExperience"
+import classes from "./CV.scss"
+&nbsp;
+export default class HistoryExperiences extends PureComponent {
+  renderTutti() {
+    return (
+      &lt;Experience title="Tutti.ch" period="2017 July"&gt;
+        &lt;span&gt;
+          I am now working full time for &lt;a href="https://tutti.ch"&gt;Tutti.ch&lt;/a&gt; as a front end developer.
+          The website is one of the most visited websites in Switzerland with more than
+          &lt;b&gt;10 millions&lt;/b&gt; of page views every month.
+        &lt;/span&gt;
+      &lt;/Experience&gt;
+    )
+  }
+&nbsp;
+  renderCorpax() {
+    return (
+      &lt;Experience title="Corpax" period="2015 October - 2017 June"&gt;
+            &lt;span&gt;
+              Corpax is a single page team collaboration and communication tool of which I am the idea owner.
+              During the project, as a co-founder:
+            &lt;/span&gt;
+        &lt;ul className={classes.sectionList}&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            I helped to prepare the business plan which in return
+            allowed us to get a &lt;br/&gt;&lt;b&gt;CHF 300'000&lt;/b&gt; grant from CTI.
+          &lt;/li&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            Pitched the project in St. Gallen's Start Summit
+          &lt;/li&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            Developed the whole application using the following technologies:
+            &lt;ul className={classes.sectionList}&gt;
+              &lt;li className={classes.sectionListItem}&gt;ES6 (Vue.js, Webpack, Babel, Karma, Jasmine)&lt;/li&gt;
+              &lt;li className={classes.sectionListItem}&gt;Node.js&lt;/li&gt;
+              &lt;li className={classes.sectionListItem}&gt;Php&lt;/li&gt;
+              &lt;li className={classes.sectionListItem}&gt;PostgreSQL&lt;/li&gt;
+              &lt;li className={classes.sectionListItem}&gt;AWS (EC2, RDS, S3)&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            Also collaborated closely with &lt;b&gt;SUPSI&lt;/b&gt; using an agile development methodology
+            in a team of 5 people, to build a chat bot.
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;span&gt;Website: &lt;a href="https://app.corpax.io"
+                          target="_blank"&gt;app.corpax.io&lt;/a&gt; (registrations are closed)&lt;/span&gt;
+      &lt;/Experience&gt;
+    )
+  }
+&nbsp;
+  renderRegioPress() {
+    return (
+      &lt;Experience title="RegioPress SA" period="2013 September - 2015 October"&gt;
+        &lt;span&gt;
+          During my employment in this company, I developed the official website of
+          &lt;a href="http://laregione.ch" target="_blank"&gt;laRegione&lt;/a&gt;, which is
+          one of the &lt;b&gt;most read&lt;/b&gt; newspapers in Ticino, Switzerland.
+        &lt;/span&gt;
+        &lt;span&gt;
+          I also created several Wordpress and Drupal websites for an
+          agency that we used to work together. Some of the websites are:
+        &lt;/span&gt;
+        &lt;ul className={classes.sectionList}&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            &lt;a href="http://www.casacosima.ch" target="_blank"&gt;casacosima.ch&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            &lt;a href="http://www.commercianti-bellinzona.ch/" target="_blank"&gt;commercianti-bellinzona.ch&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            &lt;a href="http://masserialabarca.ch/" target="_blank"&gt;masserialabarca.ch&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li className={classes.sectionListItem}&gt;
+            &lt;a href="http://www.studiocresto.ch/" target="_blank"&gt;studiocresto.ch&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/Experience&gt;
+    )
+  }
+&nbsp;
+  renderMarketKeyfi() {
+    return (
+      &lt;Experience title="Marketkeyfi.com" period="2010 April - 2012 May"&gt;
+        &lt;span&gt;
+          Using C#, me and another developer, developed this tool which is an online platform for
+          shopping from the closest grocery stores in your nearby. You could order from more than
+          100 groceries in Istanbul. It was my first startup, unfortunately it is no longer online.
+          I was still studying at the same time.
+        &lt;/span&gt;
+      &lt;/Experience&gt;
+    )
+  }
+&nbsp;
+  render() {
+    return (
+      &lt;div className={classes.section}&gt;
+        &lt;SectionHeader fa="fa-briefcase"&gt;
+          Work experiences
+        &lt;/SectionHeader&gt;
+        &lt;SectionText&gt;
+          {this.renderTutti()}
+          {this.renderCorpax()}
+          {this.renderRegioPress()}
+          {this.renderMarketKeyfi()}
+        &lt;/SectionText&gt;
+      &lt;/div&gt;
+    )
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 20 2017 18:54:05 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -85,7 +85,11 @@ export default class HistoryExperiences extends PureComponent {
         <span>
           During my employment in this company, I developed the official website
           of&nbsp;
-          <a href="http://laregione.ch" target="_blank">
+          <a
+            href="http://laregione.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             laRegione
           </a>
           , which is one of the <b>most read</b> newspapers in Ticino,
@@ -97,27 +101,47 @@ export default class HistoryExperiences extends PureComponent {
         </span>
         <ul className={classes.sectionList}>
           <li className={classes.sectionListItem}>
-            <a href="https://www.laregione.ch/" target="_blank">
+            <a
+              href="https://www.laregione.ch/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               laRegione.ch
             </a>
           </li>
           <li className={classes.sectionListItem}>
-            <a href="http://www.casacosima.ch" target="_blank">
+            <a
+              href="http://www.casacosima.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               casacosima.ch
             </a>
           </li>
           <li className={classes.sectionListItem}>
-            <a href="http://www.commercianti-bellinzona.ch/" target="_blank">
+            <a
+              href="http://www.commercianti-bellinzona.ch/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               commercianti-bellinzona.ch
             </a>
           </li>
           <li className={classes.sectionListItem}>
-            <a href="http://masserialabarca.ch/" target="_blank">
+            <a
+              href="http://masserialabarca.ch/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               masserialabarca.ch
             </a>
           </li>
           <li className={classes.sectionListItem}>
-            <a href="http://www.studiocresto.ch/" target="_blank">
+            <a
+              href="http://www.studiocresto.ch/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               studiocresto.ch
             </a>
           </li>

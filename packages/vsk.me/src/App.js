@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */ // --> OFF
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Route, Switch, BrowserRouter } from "react-router-dom";

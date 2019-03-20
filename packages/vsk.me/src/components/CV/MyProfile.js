@@ -7,7 +7,11 @@ export default class MyProfile extends PureComponent {
     return (
       <div className={classes.myProfile}>
         <div className={classes.myProfilePic}>
-          <img className={classes.myProfilePicImg} src={me} />
+          <img
+            className={classes.myProfilePicImg}
+            src={me}
+            alt="Savas Vedova"
+          />
         </div>
         <div className={classes.my}>
           <h1 className={classes.myName}>SAVAS VEDOVA</h1>

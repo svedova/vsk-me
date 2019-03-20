@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */ // --> OFF
+
 import React, { PureComponent } from "react";
 import Base64 from "../../helpers/base64";
 import classes from "./CV.scss";
@@ -18,13 +20,13 @@ export default class MyContact extends PureComponent {
           </a>
         </div>
         <div className={classes.myContactRow}>
-          <a href="#">
+          <a href="https://vsk.me">
             <span className="fa fa-phone" />
             <span>+41.78.863.05.10</span>
           </a>
         </div>
         <div className={classes.myContactRow}>
-          <a href="`mailto:${mail}`">
+          <a href={`mailto:${mail}`}>
             <span className="fa fa-envelope" />
             <span>{mail}</span>
           </a>

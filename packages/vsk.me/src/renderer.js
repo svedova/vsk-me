@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ServerStyleSheet } from "styled-components";
+import { ServerStyleSheet } from "styled-components";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { matchPath } from "react-router-dom";

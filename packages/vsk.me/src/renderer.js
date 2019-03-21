@@ -51,7 +51,7 @@ export default async (req, res) => {
   const data = Helmet.renderStatic();
   const head = Object.keys(data)
     .map(k => data[k].toString())
-    .concat([sheet.getStyleElement()])
+    .concat(sheet.getStyleTags())
     .join("");
 
   return res.send({ body: { content: body, head }, headers: {}, status });

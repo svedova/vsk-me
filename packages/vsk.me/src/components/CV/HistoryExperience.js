@@ -1,6 +1,7 @@
+/* eslint no-undef: 0 */ // --> OFF
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import classes from "./CV.scss";
+import { Experience, Title, Period, Body } from "./HistoryExperience.styles";
 
 export default class HistoryExperience extends PureComponent {
   static propTypes = {
@@ -13,15 +14,15 @@ export default class HistoryExperience extends PureComponent {
     const { children, title, period } = this.props;
 
     return (
-      <div className={classes.experience}>
-        <div className={classes.experienceHeader}>
-          <h3 className={classes.experienceTitle}>{title}</h3>
-          <div className={classes.experiencePeriod}>
+      <Experience>
+        <div>
+          <Title>{title}</Title>
+          <Period>
             <i>{period}</i>
-          </div>
+          </Period>
         </div>
-        <div className={classes.experienceBody}>{children}</div>
-      </div>
+        <Body>{children}</Body>
+      </Experience>
     );
   }
 }

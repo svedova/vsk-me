@@ -18,7 +18,9 @@ const Sticky = {
       listener.init();
     }
 
-    return makeSticky(elem, style);
+    const el = makeSticky(elem, style);
+    listener.onScroll();
+    return el;
   },
 
   /**

@@ -1,6 +1,7 @@
+/* eslint no-undef: 0 */ // --> OFF
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import classes from "./CV.scss";
+import { SkillBar, SkillBarBG } from "./Skill.styles";
 
 export default class Skill extends PureComponent {
   static propTypes = {
@@ -12,11 +13,9 @@ export default class Skill extends PureComponent {
     const { name, perc } = this.props;
 
     return (
-      <div className={classes.skillBar}>
-        <div className={classes.skillBarBg} style={{ width: perc + "%" }}>
-          {name}
-        </div>
-      </div>
+      <SkillBar>
+        <SkillBarBG width={perc + "%"}>{name}</SkillBarBG>
+      </SkillBar>
     );
   }
 }

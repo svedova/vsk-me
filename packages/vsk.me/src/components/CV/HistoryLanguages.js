@@ -1,7 +1,9 @@
+/* eslint no-undef: 0 */ // --> OFF
 import React, { PureComponent } from "react";
 import SectionHeader from "./SectionHeader";
 import SectionText from "./SectionText";
-import classes from "./CV.scss";
+import { Lang, Name, Stars } from "./HistoryLanguage.styles";
+import { Section } from "./CV.styles";
 
 export default class HistoryLanguages extends PureComponent {
   static langs = {
@@ -31,24 +33,24 @@ export default class HistoryLanguages extends PureComponent {
     const { langs } = HistoryLanguages;
 
     return (
-      <div className={classes.section}>
+      <Section>
         <SectionHeader fa="fa-asl-interpreting">Languages</SectionHeader>
         <SectionText>
           {Object.keys(langs).map(lang => (
-            <div className={classes.lang} key={lang}>
-              <div className={classes.langName}>{lang}</div>
-              <div className={classes.langStars}>
+            <Lang key={lang}>
+              <Name>{lang}</Name>
+              <Stars>
                 {noOfStars.map(i => (
                   <span
                     className={this.computeClass(langs[lang], i)}
                     key={`s-${i}`}
                   />
                 ))}
-              </div>
-            </div>
+              </Stars>
+            </Lang>
           ))}
         </SectionText>
-      </div>
+      </Section>
     );
   }
 }

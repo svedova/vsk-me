@@ -1,12 +1,12 @@
 import React, { PureComponent } from "react";
 import SectionText from "./SectionText";
 import SectionHeader from "./SectionHeader";
-import classes from "./CV.scss";
+import { Section } from "./CV.styles";
 
 export default class HistoryAbout extends PureComponent {
   render() {
     return (
-      <div className={classes.section}>
+      <Section>
         <SectionHeader fa="fa-user">Summary</SectionHeader>
         <SectionText>
           Being a self-taught passionate programmer, during the recent years I
@@ -18,7 +18,7 @@ export default class HistoryAbout extends PureComponent {
           complex databases (including setting up), writing backend APIs and
           frontend for several websites.
         </SectionText>
-      </div>
+      </Section>
     );
   }
 }

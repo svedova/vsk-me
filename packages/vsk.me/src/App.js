@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Helmet from "react-helmet";
 import Header from "./components/Layout/Header";
-import "./style/main.scss";
-import classes from "./App.scss";
+import Styles from "./style/global";
+import { Page } from "./App.styles.js";
 import routes from "./routes/client";
 
 export default class App extends PureComponent {
@@ -22,6 +22,7 @@ export default class App extends PureComponent {
 
     return (
       <React.Fragment>
+        <Styles />
         <Helmet>
           <title>Personal Blog | Savas Vedova</title>
           <meta
@@ -32,9 +33,9 @@ export default class App extends PureComponent {
           />
         </Helmet>
         <Router>
-          <div className={classes.wrapper}>
+          <div>
             <Header />
-            <div className={classes.page}>
+            <Page>
               <Switch>
                 {routes.map(r => (
                   <Route {...r} key={r.path} />
@@ -53,7 +54,7 @@ export default class App extends PureComponent {
                   )}
                 />
               </Switch>
-            </div>
+            </Page>
           </div>
         </Router>
       </React.Fragment>

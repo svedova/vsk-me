@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import SectionHeader from "./SectionHeader";
 import SectionText from "./SectionText";
 import Experience from "./HistoryExperience";
-import classes from "./CV.scss";
+import { Section } from "./CV.styles";
 
 export default class HistoryExperiences extends PureComponent {
   renderTutti() {
@@ -14,18 +14,14 @@ export default class HistoryExperiences extends PureComponent {
           websites in Switzerland with more than&nbsp;
           <b>15 millions</b> monthly page views. During my employment I was
           responsible from the followings:
-          <ul className={classes.sectionList}>
-            <li className={classes.sectionListItem}>
-              Implemented the server side rendering logic.
-            </li>
-            <li className={classes.sectionListItem}>
+          <ul>
+            <li>Implemented the server side rendering logic.</li>
+            <li>
               Pushed hard for unit-tests. Increased test coverage from 0% to
               60%.
             </li>
-            <li className={classes.sectionListItem}>
-              Migrated the remaining legacy code to React.
-            </li>
-            <li className={classes.sectionListItem}>
+            <li>Migrated the remaining legacy code to React.</li>
+            <li>
               Rewrote the whole routing of the frontend (migrate from React
               Router v2 to v4)
             </li>
@@ -46,28 +42,24 @@ export default class HistoryExperiences extends PureComponent {
           collaboration and communication (similar to Slack/Trello). Failed
           after 2 years. During that time:
         </span>
-        <ul className={classes.sectionList}>
-          <li className={classes.sectionListItem}>
+        <ul>
+          <li>
             I helped to prepare the business plan which in return allowed us to
             get a <br />
             <b>CHF 300'000</b> grant from CTI.
           </li>
-          <li className={classes.sectionListItem}>
-            Pitched the project in St. Gallen's Start Summit
-          </li>
-          <li className={classes.sectionListItem}>
+          <li>Pitched the project in St. Gallen's Start Summit</li>
+          <li>
             Developed the whole application using the following technologies:
-            <ul className={classes.sectionList}>
-              <li className={classes.sectionListItem}>
-                ES6 (Vue.js, Webpack, Babel, Karma, Jasmine)
-              </li>
-              <li className={classes.sectionListItem}>Node.js</li>
-              <li className={classes.sectionListItem}>Php</li>
-              <li className={classes.sectionListItem}>PostgreSQL</li>
-              <li className={classes.sectionListItem}>AWS (EC2, RDS, S3)</li>
+            <ul>
+              <li>ES6 (Vue.js, Webpack, Babel, Karma, Jasmine)</li>
+              <li>Node.js</li>
+              <li>Php</li>
+              <li>PostgreSQL</li>
+              <li>AWS (EC2, RDS, S3)</li>
             </ul>
           </li>
-          <li className={classes.sectionListItem}>
+          <li>
             Also collaborated closely with <b>SUPSI</b> using an agile
             development methodology in a team of 5 people, to build a chat bot.
           </li>
@@ -99,8 +91,8 @@ export default class HistoryExperiences extends PureComponent {
           I also created several Wordpress and Drupal websites for an agency
           that we used to work together. Some of the websites are:
         </span>
-        <ul className={classes.sectionList}>
-          <li className={classes.sectionListItem}>
+        <ul>
+          <li>
             <a
               href="https://www.laregione.ch/"
               target="_blank"
@@ -109,7 +101,7 @@ export default class HistoryExperiences extends PureComponent {
               laRegione.ch
             </a>
           </li>
-          <li className={classes.sectionListItem}>
+          <li>
             <a
               href="http://www.casacosima.ch"
               target="_blank"
@@ -118,7 +110,7 @@ export default class HistoryExperiences extends PureComponent {
               casacosima.ch
             </a>
           </li>
-          <li className={classes.sectionListItem}>
+          <li>
             <a
               href="http://www.commercianti-bellinzona.ch/"
               target="_blank"
@@ -127,7 +119,7 @@ export default class HistoryExperiences extends PureComponent {
               commercianti-bellinzona.ch
             </a>
           </li>
-          <li className={classes.sectionListItem}>
+          <li>
             <a
               href="http://masserialabarca.ch/"
               target="_blank"
@@ -136,7 +128,7 @@ export default class HistoryExperiences extends PureComponent {
               masserialabarca.ch
             </a>
           </li>
-          <li className={classes.sectionListItem}>
+          <li>
             <a
               href="http://www.studiocresto.ch/"
               target="_blank"
@@ -166,7 +158,7 @@ export default class HistoryExperiences extends PureComponent {
 
   render() {
     return (
-      <div className={classes.section}>
+      <Section>
         <SectionHeader fa="fa-briefcase">Work experiences</SectionHeader>
         <SectionText>
           {this.renderTutti()}
@@ -174,7 +166,7 @@ export default class HistoryExperiences extends PureComponent {
           {this.renderRegioPress()}
           {this.renderMarketKeyfi()}
         </SectionText>
-      </div>
+      </Section>
     );
   }
 }

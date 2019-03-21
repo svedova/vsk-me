@@ -1,8 +1,10 @@
+/* eslint no-undef: 0 */ // --> OFF
 import React, { PureComponent } from "react";
 import SectionHeader from "./SectionHeader";
 import SectionText from "./SectionText";
 import Skill from "./Skill";
-import classes from "./CV.scss";
+import { Section } from "./CV.styles";
+import { PS, PSLeft, PSRight } from "./HistorySkills.styles";
 
 export default class HistorySkills extends PureComponent {
   static skills = [
@@ -11,7 +13,7 @@ export default class HistorySkills extends PureComponent {
     ["HTML5/CSS3", 95],
     ["Node.js", 85],
     ["GoLang", 65],
-    ["AWS (Lambda, API GW, S3, EC2, Route53)", 90],
+    ["AWS (Lambda, API GW, S3, EC2, Route53)", 90]
   ];
 
   static frameworks = [
@@ -27,25 +29,25 @@ export default class HistorySkills extends PureComponent {
     const { skills, frameworks } = HistorySkills;
 
     return (
-      <div className={classes.section}>
+      <Section>
         <SectionHeader fa="fa-trophy">
           Programming, Tools & Frameworks
         </SectionHeader>
         <SectionText>
-          <div className={classes.ps}>
-            <div className={classes.psLeft}>
+          <PS>
+            <PSLeft>
               {skills.map((s, i) => (
                 <Skill name={s[0]} perc={s[1]} key={`s-${i}`} />
               ))}
-            </div>
-            <div className={classes.psRight}>
+            </PSLeft>
+            <PSRight>
               {frameworks.map((s, i) => (
                 <Skill name={s[0]} perc={s[1]} key={`f-${i}`} />
               ))}
-            </div>
-          </div>
+            </PSRight>
+          </PS>
         </SectionText>
-      </div>
+      </Section>
     );
   }
 }

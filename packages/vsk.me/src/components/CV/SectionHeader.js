@@ -1,6 +1,7 @@
+/* eslint no-undef: 0 */ // --> OFF
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import classes from "./CV.scss";
+import { SectionH2, SectionHeaderText } from "./CV.styles";
 
 export default class SectionHeader extends PureComponent {
   static propTypes = {
@@ -12,10 +13,10 @@ export default class SectionHeader extends PureComponent {
     const { fa, children } = this.props;
 
     return (
-      <h2 className={classes.sectionHeader}>
+      <SectionH2>
         <span className={`fa ${fa}`} />
-        <span className={classes.sectionHeaderText}>{children}</span>
-      </h2>
+        <SectionHeaderText>{children}</SectionHeaderText>
+      </SectionH2>
     );
   }
 }

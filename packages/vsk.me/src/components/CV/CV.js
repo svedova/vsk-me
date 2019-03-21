@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useRef, useEffect } from "react";
 import { sticky, unsticky } from "../../helpers/sticky";
 import Helmet from "react-helmet";
 import MyProfile from "./MyProfile";
@@ -8,44 +8,44 @@ import HistoryExperiences from "./HistoryExperiences";
 import HistoryEducation from "./HistoryEducation";
 import HistorySkills from "./HistorySkills";
 import HistoryLanguages from "./HistoryLanguages";
-import classes from "./CV.scss";
+import * as styles from "./CV.styles";
 
-export default class CV extends Component {
-  componentDidMount() {
-    this.root = document.querySelector(`.${classes.stickyContent}`);
-    this.root && sticky(this.root);
-  }
+const { Container, MyDetails, MyHistory, StickContent } = styles;
 
-  componentWillUnmount() {
-    this.root && unsticky(this.root);
-  }
+const CV = () => {
+  const stickyRef = useRef(null);
 
-  render() {
-    return (
-      <Fragment>
-        <Helmet>
-          <title>Curriculum Vitae | Savas Vedova</title>
-          <meta
-            name={"description"}
-            content={"The curriculum vitae of Savas Vedova"}
-          />
-        </Helmet>
-        <div className={classes.cv}>
-          <div className={classes.myDetails}>
-            <div className={classes.stickyContent}>
-              <MyProfile />
-              <MyContact />
-            </div>
-          </div>
-          <div className={classes.myHistory}>
-            <HistoryAbout />
-            <HistoryExperiences />
-            <HistoryEducation />
-            <HistorySkills />
-            <HistoryLanguages />
-          </div>
-        </div>
-      </Fragment>
-    );
-  }
-}
+  useEffect(() => {
+    sticky(stickyRef.current);
+    return () => unsticky(stickyRef.current);
+  }, []);
+
+  return (
+    <Fragment>
+      <Helmet>
+        <title>Curriculum Vitae | Savas Vedova</title>
+        <meta
+          name={"description"}
+          content={"The curriculum vitae of Savas Vedova"}
+        />
+      </Helmet>
+      <Container>
+        <MyDetails>
+          <StickContent ref={stickyRef}>
+            <MyProfile />
+            <MyContact />
+          </StickContent>
+        </MyDetails>
+        <MyHistory>
+          <HistoryAbout />
+          <HistoryExperiences />
+          <HistoryEducation />
+          <HistorySkills />
+          <HistoryLanguages />
+        </MyHistory>
+      </Container>
+    </Fragment>
+  );
+};
+
+export default CV;

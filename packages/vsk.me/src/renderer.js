@@ -49,7 +49,10 @@ export default async (req, res) => {
 
   const body = renderToString(jsx);
   const data = Helmet.renderStatic();
-  const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore
+  const head = Object.keys(data)
+    .map(k => data[k].toString())
+    .concat([jsx.getStyleElement()])
+    .join("");
 
   return res.send({ body: { content: body, head }, headers: {}, status });
 };

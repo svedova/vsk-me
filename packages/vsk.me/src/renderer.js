@@ -1,4 +1,5 @@
 import React from "react";
+import styled, { ServerStyleSheet } from "styled-components";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { matchPath } from "react-router-dom";
@@ -43,7 +44,10 @@ export default async (req, res) => {
     <StaticRouter {...props} context={context} location={req.path} />
   );
 
-  const body = renderToString(<App Router={router} />);
+  const sheet = new ServerStyleSheet();
+  const jsx = sheet.collectStyles(<App Router={router} />);
+
+  const body = renderToString(jsx);
   const data = Helmet.renderStatic();
   const head = Object.keys(data).map(k => data[k].toString()).join(""); // prettier-ignore
 

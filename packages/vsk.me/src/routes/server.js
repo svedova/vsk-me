@@ -1,5 +1,9 @@
 import clientRoutes from "./client";
-import robots from "../robots.txt";
+
+const robotsTxt = `
+User-agent: *
+Allow: /
+`;
 
 export default clientRoutes.concat({
   path: "/robots.txt",
@@ -7,6 +11,6 @@ export default clientRoutes.concat({
     headers: {
       "Content-Type": "text/plain; charset=utf-8"
     },
-    body: robots
+    body: robotsTxt.trim()
   })
 });

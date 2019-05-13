@@ -6,6 +6,7 @@ import { matchPath } from "react-router-dom";
 import Helmet from "react-helmet";
 import App from "./App";
 import routes from "./routes/server";
+import sk from "@stormkit/api";
 
 const setup = async context => {
   try {
@@ -22,6 +23,15 @@ const setup = async context => {
   }
 };
 
+const log = (req, res) => {
+  sk.log("access", {
+    response: res.status,
+    path: req.url,
+    method: req.method,
+    ua: req.headers["User-Agent"]
+  });
+};
+
 export default async (req, res) => {
   let status = 200;
   const context = {
@@ -32,6 +42,7 @@ export default async (req, res) => {
     const resp = await setup(context);
 
     if (resp) {
+      log(req, resp);
       return res.send(resp);
     }
   }
@@ -54,5 +65,6 @@ export default async (req, res) => {
     .concat(sheet.getStyleTags())
     .join("");
 
+  log(req, context);
   return res.send({ body: { content: body, head }, headers: {}, status });
 };

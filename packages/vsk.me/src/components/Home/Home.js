@@ -4,7 +4,7 @@ import { Container, HireMe, HireMeLink } from "./Home.styles.js";
 export default class Home extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
-      const ref = this.refs["hire-me"];
+      const ref = document.getElementById("hire-me");
       ref && ref.classList.add("trans");
     }, 500);
   }
@@ -12,7 +12,7 @@ export default class Home extends PureComponent {
   render() {
     return (
       <Container>
-        <HireMe ref="hire-me">
+        <HireMe id="hire-me">
           <HireMeLink to="/contact">Work with me</HireMeLink>
         </HireMe>
       </Container>

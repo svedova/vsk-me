@@ -64,8 +64,6 @@ export default createGlobalStyle`
     &:before {
       z-index: -1;
       content: '';
-      filter: blur(4px);
-      // background: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-18.jpg') no-repeat center center fixed;
       background: url(${bg}) no-repeat center center fixed;
       background-size: cover;
       display: block;

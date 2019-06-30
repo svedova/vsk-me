@@ -7,34 +7,51 @@ import { Section } from "./CV.styles";
 export default class HistoryExperiences extends PureComponent {
   renderTutti() {
     return (
-      <Experience title="Tutti.ch, Frontend Engineer" period="2017 July">
-        <span>
-          I am now working full time for <a href="https://tutti.ch">Tutti.ch</a>{" "}
-          as a frontend engineer. The website is one of the most visited
-          websites in Switzerland with more than&nbsp;
-          <b>15 millions</b> monthly page views. During my employment I was
-          responsible from the followings:
-          <ul>
-            <li>Implemented the server side rendering logic.</li>
-            <li>
-              Pushed hard for unit-tests. Increased test coverage from 0% to
-              60%.
-            </li>
-            <li>Migrated the remaining legacy code to React.</li>
-            <li>
-              Rewrote the whole routing of the frontend (migrate from React
-              Router v2 to v4)
-            </li>
-          </ul>
-        </span>
-      </Experience>
+      <React.Fragment>
+        <Experience title="Tutti.ch, Fullstack Engineer" period="2019 January">
+          <span>
+            Updated my contract as a Fullstack Engineer to reflect my new role.
+            <ul>
+              <li>
+                Worked on ElasticSearch while rewriting the Search Engine.
+              </li>
+              <li>
+                Maintained Node Applications to serve millions of daily
+                requests.
+              </li>
+              <li>
+                Introduced Terraform to have a blueprint of our Infrastructure.
+              </li>
+            </ul>
+          </span>
+        </Experience>
+        <Experience
+          title="Tutti.ch, Frontend Engineer"
+          period="2017 July - 2019 January"
+        >
+          <span>
+            Worked full time for <a href="https://tutti.ch">Tutti.ch</a> as a
+            Frontend Engineer. The website is one of the most visited websites
+            in Switzerland with more than&nbsp;
+            <b>15 millions</b> monthly page views.
+            <ul>
+              <li>Implemented the server side rendering logic.</li>
+              <li>
+                Pushed hard for unit-tests. Increased test coverage from 0% to
+                60%.
+              </li>
+              <li>Migrated the remaining legacy code to React.</li>
+            </ul>
+          </span>
+        </Experience>
+      </React.Fragment>
     );
   }
 
   renderCorpax() {
     return (
       <Experience
-        title="RegioPress SA/Corpax, Fullstack Engineer"
+        title="RegioPress SA / Corpax, Fullstack Engineer"
         period="2015 October - 2017 June"
       >
         <span>

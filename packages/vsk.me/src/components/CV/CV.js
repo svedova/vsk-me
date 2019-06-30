@@ -16,6 +16,10 @@ const CV = () => {
   const stickyRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 516) {
+      return;
+    }
+
     sticky(stickyRef.current);
     return () => unsticky(stickyRef.current);
   }, []);

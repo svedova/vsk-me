@@ -6,6 +6,10 @@ export const marginLarge = "2rem";
 
 export const Container = styled.div`
   display: flex;
+
+  @media (max-width: 516px) {
+    flex-direction: column;
+  }
 `;
 
 export const MyHistory = styled.div`
@@ -15,6 +19,11 @@ export const MyHistory = styled.div`
   background: white;
   border-radius: 2px;
   background-color: white;
+
+  @media (max-width: 516px) {
+    margin-left: 0;
+    margin-top: ${marginLarge};
+  }
 `;
 
 export const Section = styled.section`
@@ -57,4 +66,8 @@ export const MyDetails = styled.div`
   flex: 0 0 auto;
   width: 300px;
   padding: ${marginSmall};
+
+  @media (max-width: 516px) {
+    width: auto;
+  }
 `;

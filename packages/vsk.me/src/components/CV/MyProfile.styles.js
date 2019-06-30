@@ -14,8 +14,13 @@ export const Name = styled.h1`
 
 export const ImgWrapper = styled.div`
   margin-bottom: ${marginSmall};
+  text-align: center;
 `;
 
 export const Img = styled.img`
   width: 100%;
+
+  @media (max-width: 516px) {
+    width: 60%;
+  }
 `;

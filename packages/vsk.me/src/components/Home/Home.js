@@ -4,7 +4,8 @@ import { Container, HireMe, HireMeLink } from "./Home.styles.js";
 export default class Home extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
-      this.refs["hire-me"].classList.add("trans");
+      const ref = this.refs["hire-me"];
+      ref && ref.classList.add("trans");
     }, 500);
   }
 

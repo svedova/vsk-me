@@ -34,6 +34,16 @@ export const Header = styled.header`
       color: white;
       opacity: 0.8;
     }
+
+    @media (max-width: 516px) {
+      font-size: 1rem;
+      margin: 0 1rem;
+    }
+  }
+
+  @media (max-width: 516px) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   @media print {

@@ -5,7 +5,7 @@ export default class About extends Component {
   render() {
     return (
       <Content>
-        <p>Hey there.</p>
+        <p>Hey there,</p>
         <p>
           My name is Savas Vedova. I am from Switzerland. I was born in a small
           town called Bellinzona - which happens to be the capital of Canton

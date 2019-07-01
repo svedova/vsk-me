@@ -1,5 +1,4 @@
-import React, { Fragment, useRef, useEffect } from "react";
-import { sticky, unsticky } from "../../helpers/sticky";
+import React, { Fragment } from "react";
 import Helmet from "react-helmet";
 import MyProfile from "./MyProfile";
 import MyContact from "./MyContact";
@@ -13,17 +12,6 @@ import * as styles from "./CV.styles";
 const { Container, MyDetails, MyHistory, StickContent } = styles;
 
 const CV = () => {
-  const stickyRef = useRef(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < 516) {
-      return;
-    }
-
-    sticky(stickyRef.current);
-    return () => unsticky(stickyRef.current);
-  }, []);
-
   return (
     <Fragment>
       <Helmet>
@@ -35,7 +23,7 @@ const CV = () => {
       </Helmet>
       <Container>
         <MyDetails>
-          <StickContent ref={stickyRef}>
+          <StickContent>
             <MyProfile />
             <MyContact />
           </StickContent>

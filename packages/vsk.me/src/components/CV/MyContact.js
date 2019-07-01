@@ -7,6 +7,8 @@ import { MyContactRow } from "./MyContact.styles";
 export default class MyContact extends PureComponent {
   static FB_LINK = "https://www.facebook.com/savasvedova";
   static IG_LINK = "https://www.instagram.com/savasvedova";
+  static IN_LINK = "https://www.linkedin.com/in/savas-vedova";
+  static TW_LINK = "https://www.twitter.com/savasvedova";
 
   render() {
     const mail = Base64.decode("c2F2YXNAdnNrLm1l");
@@ -45,6 +47,18 @@ export default class MyContact extends PureComponent {
           <a href={MyContact.IG_LINK}>
             <span className="fa fa-instagram" />
             <span>instagram.com/savasvedova</span>
+          </a>
+        </MyContactRow>
+        <MyContactRow>
+          <a href={MyContact.IN_LINK}>
+            <span className="fa fa-linkedin" />
+            <span>linkedin.com/in/savas-vedova</span>
+          </a>
+        </MyContactRow>
+        <MyContactRow>
+          <a href={MyContact.TW_LINK}>
+            <span className="fa fa-twitter" />
+            <span>twitter.com/savasvedova</span>
           </a>
         </MyContactRow>
       </div>

@@ -56,7 +56,7 @@ export default async (req, res) => {
   );
 
   const sheet = new ServerStyleSheet();
-  const jsx = sheet.collectStyles(<App Router={router} />);
+  const jsx = sheet.collectStyles(<App Router={router} request={req} />);
 
   const body = renderToString(jsx);
   const data = Helmet.renderStatic();

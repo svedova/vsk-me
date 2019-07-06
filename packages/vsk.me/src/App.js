@@ -7,6 +7,7 @@ import Header from "./components/Layout/Header";
 import Styles from "./style/global";
 import { Page } from "./App.styles.js";
 import routes from "./routes/client";
+import sk from "@stormkit/api";
 
 export default class App extends PureComponent {
   static defaultProps = {
@@ -14,14 +15,21 @@ export default class App extends PureComponent {
   };
 
   static propTypes = {
-    Router: PropTypes.func
+    Router: PropTypes.func,
+    request: PropTypes.object // For server side
   };
+
+  constructor(props) {
+    super(props);
+    this.config = sk.config(props.request);
+  }
 
   render() {
     const { Router } = this.props;
 
     return (
       <React.Fragment>
+        <div style={{ display: "none" }}>{JSON.stringify(this.config)}</div>
         <Styles />
         <Helmet>
           <title>Personal Blog | Savas Vedova</title>

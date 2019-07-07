@@ -65,6 +65,6 @@ export default async (req, res) => {
     .concat(sheet.getStyleTags())
     .join("");
 
-  log(req, context);
+  log("access", req);
   return res.send({ body: { content: body, head }, headers: {}, status });
 };

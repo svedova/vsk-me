@@ -22,8 +22,6 @@ export default class App extends PureComponent {
   constructor(props) {
     super(props);
     this.config = sk.config(props.request);
-    sk.log("debug", this.config);
-    sk.log("debug", props.request.header("cookie"));
   }
 
   render() {

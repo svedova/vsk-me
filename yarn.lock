@@ -898,10 +898,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@stormkit/api@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@stormkit/api/-/api-1.0.5.tgz#977d5be44b4186cb6d989798deabcb0f98a4cdb0"
-  integrity sha512-4DcB5l5B9sGWMzJ0sIirsaS3rVvgUPloEam3wpN9sG807oNal6DZWqSGCbHXtgwbT+VAK9arrPL+Jg+xJZdGgw==
+"@stormkit/api@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@stormkit/api/-/api-1.0.6.tgz#52b61478a6781f4ac9e36f25be91693e4fd2a8f2"
+  integrity sha512-q95nU7hdDS1p1GESGqzjlCnLJdpr8upsX71gKRRdMX90iOVycRXmCSb0d7AQ2al6RctmOQdtkKOi5gVAuhBdAQ==
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.0.0":
   version "4.0.0"

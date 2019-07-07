@@ -19,10 +19,6 @@ export default class App extends PureComponent {
     request: PropTypes.object // For server side
   };
 
-  componentDidMount() {
-    sk.log("app:cdm", "Component loaded successfully");
-  }
-
   render() {
     const { Router } = this.props;
     const config = sk.config(this.props.request) || {};

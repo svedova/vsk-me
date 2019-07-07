@@ -6,7 +6,6 @@ import { matchPath } from "react-router-dom";
 import Helmet from "react-helmet";
 import App from "./App";
 import routes from "./routes/server";
-import sk from "@stormkit/api";
 
 const setup = async context => {
   try {
@@ -24,7 +23,7 @@ const setup = async context => {
 };
 
 const log = (req, res) => {
-  sk.log("access", {
+  console.log({
     response: res.status,
     path: req.url,
     method: req.method,

@@ -19,9 +19,8 @@ export default class App extends PureComponent {
     request: PropTypes.object // For server side
   };
 
-  constructor(props) {
-    super(props);
-    this.config = sk.config(props.request);
+  componentDidMount() {
+    sk.log("app:cdm", "Component loaded successfully");
   }
 
   render() {
@@ -29,7 +28,6 @@ export default class App extends PureComponent {
 
     return (
       <React.Fragment>
-        <div style={{ display: "none" }}>{JSON.stringify(this.config)}</div>
         <Styles />
         <Helmet>
           <title>Personal Blog | Savas Vedova</title>

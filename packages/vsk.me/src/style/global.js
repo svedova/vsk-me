@@ -1,7 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "./reset";
-import bg from "../images/bg-alt.jpg";
 import props from "./props";
+import sk from "@stormkit/api";
+
+const config = sk.config(props.request);
+let bg;
+
+if (config.bgVersion === 1) {
+  bg = require("../images/bg-alt.jpg");
+} else {
+  bg = require("../images/bg-wallpaper.jpg");
+}
 
 export default createGlobalStyle`
   ${reset};

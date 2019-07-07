@@ -28,7 +28,8 @@ const log = (req, res) => {
     response: res.status,
     path: req.url,
     method: req.method,
-    ua: req.headers["User-Agent"]
+    ua: req.header("User-Agent"),
+    headers: req.headers
   });
 };
 
@@ -65,6 +66,6 @@ export default async (req, res) => {
     .concat(sheet.getStyleTags())
     .join("");
 
-  log("access", req);
+  log(req, context);
   return res.send({ body: { content: body, head }, headers: {}, status });
 };

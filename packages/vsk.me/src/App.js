@@ -25,10 +25,11 @@ export default class App extends PureComponent {
 
   render() {
     const { Router } = this.props;
+    const config = sk.config(this.props.request) || {};
 
     return (
-      <React.Fragment>
-        <Styles />
+      <div className={config.bgType === 1 ? "variant-1" : "variant-2"}>
+        <Styles variant={config.bgType} />
         <Helmet>
           <title>Personal Blog | Savas Vedova</title>
           <meta
@@ -63,7 +64,7 @@ export default class App extends PureComponent {
             </Page>
           </div>
         </Router>
-      </React.Fragment>
+      </div>
     );
   }
 }

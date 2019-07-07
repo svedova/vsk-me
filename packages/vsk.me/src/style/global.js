@@ -1,16 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "./reset";
 import props from "./props";
-import sk from "@stormkit/api";
-
-const config = sk.config(props.request);
-let bg;
-
-if (config.bgVersion === 1) {
-  bg = require("../images/bg-alt.jpg");
-} else {
-  bg = require("../images/bg-wallpaper.jpg");
-}
+import bg1 from "../images/bg-alt.jpg";
+import bg2 from "../images/bg-wallpaper.jpg";
 
 export default createGlobalStyle`
   ${reset};
@@ -73,7 +65,8 @@ export default createGlobalStyle`
     &:before {
       z-index: -1;
       content: '';
-      background: url(${bg}) no-repeat center center fixed;
+      background: url(${p =>
+        p.variant === 1 ? bg1 : bg2}) no-repeat center center fixed;
       background-size: cover;
       display: block;
       left: -5px;

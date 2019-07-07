@@ -41,6 +41,10 @@ export const Header = styled.header`
     }
   }
 
+  .variant-2 & a {
+    color: black;
+  }
+
   @media (max-width: 516px) {
     margin-top: 1rem;
     margin-bottom: 1rem;

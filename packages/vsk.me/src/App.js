@@ -21,7 +21,7 @@ export default class App extends PureComponent {
 
   render() {
     const { Router } = this.props;
-    const config = sk.config(this.props.request) || {};
+    const config = sk.config(this.props.request);
 
     return (
       <div className={config.bgType === 1 ? "variant-1" : "variant-2"}>

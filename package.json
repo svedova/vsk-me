@@ -1,7 +1,7 @@
 {
   "name": "vsk.me",
   "version": "1.0.0",
-  "description": "Monorepo for vsk.me pages",
+  "description": "Monorepo for managing vsk.me sites",
   "main": "index.js",
   "repository": "git@github.com:svedova/vsk-me.git",
   "author": "Savas Vedova <savas@vsk.me>",

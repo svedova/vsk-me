@@ -26,6 +26,14 @@ export const Hello = styled.div`
   a {
     color: #ff3a83;
   }
+
+  @media (max-width: 516px) {
+    font-size: 1.25rem;
+    left: 1rem;
+    right: 1rem;
+    transform: translateY(-50%);
+    margin-top: -3rem;
+  }
 `;
 
 export const HireMe = styled.h1`

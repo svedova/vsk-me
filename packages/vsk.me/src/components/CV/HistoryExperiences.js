@@ -8,7 +8,10 @@ export default class HistoryExperiences extends PureComponent {
   renderTutti() {
     return (
       <React.Fragment>
-        <Experience title="Tutti.ch, Fullstack Engineer" period="2019 January">
+        <Experience
+          title="Tutti.ch, Fullstack Engineer"
+          period="2019 January - Present"
+        >
           <span>
             Updated my contract as a Fullstack Engineer to reflect my new role.
             <ul>

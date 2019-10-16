@@ -10,6 +10,24 @@ export const Container = styled.div`
   border-radius: 1rem;
 `;
 
+export const Hello = styled.div`
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 1rem;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+
+  a {
+    color: #ff3a83;
+  }
+`;
+
 export const HireMe = styled.h1`
   position: fixed;
   bottom: 3rem;

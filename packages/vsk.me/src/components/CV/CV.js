@@ -7,6 +7,7 @@ import HistoryExperiences from "./HistoryExperiences";
 import HistoryEducation from "./HistoryEducation";
 import HistorySkills from "./HistorySkills";
 import HistoryLanguages from "./HistoryLanguages";
+import HistorySideProjects from "./HistorySideProjects";
 import * as styles from "./CV.styles";
 
 const { Container, MyDetails, MyHistory, StickContent } = styles;
@@ -30,6 +31,7 @@ const CV = () => {
         </MyDetails>
         <MyHistory>
           <HistoryAbout />
+          <HistorySideProjects />
           <HistoryExperiences />
           <HistoryEducation />
           <HistorySkills />

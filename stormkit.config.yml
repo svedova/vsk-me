@@ -1,0 +1,9 @@
+host:
+  - name:
+      - vsk.me
+
+    redirects:
+      - from: www.vsk.me
+        to: vsk.me
+        status: 301
+        replace: true

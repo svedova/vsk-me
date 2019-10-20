@@ -1,6 +1,5 @@
-host:
-  - name:
-      - vsk.me
+app:
+  - id: "3289604702"
 
     redirects:
       - from: www.vsk.me

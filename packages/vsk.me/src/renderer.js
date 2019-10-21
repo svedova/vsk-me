@@ -24,7 +24,7 @@ const setup = async context => {
 
 const log = (req, res) => {
   console.log({
-    response: res.status,
+    response: res.statusCode,
     path: req.url,
     method: req.method,
     ua: req.header("User-Agent"),
@@ -56,7 +56,9 @@ export default async (req, res) => {
   );
 
   const sheet = new ServerStyleSheet();
-  const jsx = sheet.collectStyles(<App Router={router} request={req} />);
+  const jsx = sheet.collectStyles(
+    <App Router={router} request={req} response={res} />
+  );
 
   const body = renderToString(jsx);
   const data = Helmet.renderStatic();
@@ -65,6 +67,7 @@ export default async (req, res) => {
     .concat(sheet.getStyleTags())
     .join("");
 
+  res.status(status);
   log(req, context);
-  return res.send({ body: { content: body, head }, headers: {}, status });
+  return res.send({ content: body, head });
 };

@@ -1,7 +1,15 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import context from "../../App.context";
+import sk from "@stormkit/api";
 import { Container, HireMe, HireMeLink, Hello } from "./Home.styles.js";
 
-export default class Home extends PureComponent {
+class Home extends PureComponent {
+  static propTypes = {
+    request: PropTypes.object, // Server side request object
+    response: PropTypes.object // Server side response object
+  };
+
   componentDidMount() {
     setTimeout(() => {
       const ref = document.getElementById("hire-me");
@@ -10,9 +18,12 @@ export default class Home extends PureComponent {
   }
 
   render() {
+    const { request, response } = this.props;
+    const bgType = sk.config(request, response).get("bgType");
+
     return (
       <Container>
-        <Hello>
+        <Hello bgType={bgType}>
           Hi there,
           <br /> My name is Savas. Currently I'm working at{" "}
           <a
@@ -42,3 +53,5 @@ export default class Home extends PureComponent {
     );
   }
 }
+
+export default context.withConsumer(Home);

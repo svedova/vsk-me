@@ -66,7 +66,7 @@ export default createGlobalStyle`
       z-index: -1;
       content: '';
       background: url(${p =>
-        p.variant === 1 ? bg1 : bg2}) no-repeat center center fixed;
+        p.variant === "dark" ? bg1 : bg2}) no-repeat center center fixed;
       background-size: cover;
       display: block;
       left: -5px;

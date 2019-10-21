@@ -7,6 +7,7 @@ import Header from "./components/Layout/Header";
 import Styles from "./style/global";
 import { Page } from "./App.styles.js";
 import routes from "./routes/client";
+import context from "./App.context";
 import sk from "@stormkit/api";
 
 export default class App extends PureComponent {
@@ -16,51 +17,54 @@ export default class App extends PureComponent {
 
   static propTypes = {
     Router: PropTypes.func,
-    request: PropTypes.object // For server side
+    request: PropTypes.object, // For server side
+    response: PropTypes.object // For server side
   };
 
   render() {
-    const { Router } = this.props;
-    const config = sk.config(this.props.request);
+    const { Router, request, response } = this.props;
+    const bgType = sk.config(request, response).get("bgType");
 
     return (
-      <div className={config.bgType === 1 ? "variant-1" : "variant-2"}>
-        <Styles variant={config.bgType} />
-        <Helmet>
-          <title>Personal Blog | Savas Vedova</title>
-          <meta
-            name={"description"}
-            content={
-              "Simple personal home page written in react.js. A bit about me and my projects."
-            }
-          />
-        </Helmet>
-        <Router>
-          <div>
-            <Header />
-            <Page>
-              <Switch>
-                {routes.map(r => (
-                  <Route {...r} key={r.path} />
-                ))}
-                <Route
-                  path="*"
-                  render={() => (
-                    <h1
-                      style={{
-                        textAlign: "center",
-                        margin: "5rem auto 0 auto"
-                      }}
-                    >
-                      Whoops! Nothing found here.
-                    </h1>
-                  )}
-                />
-              </Switch>
-            </Page>
-          </div>
-        </Router>
-      </div>
+      <context.Provider value={{ request, response }}>
+        <div className={bgType === "dark" ? "variant-1" : "variant-2"}>
+          <Styles variant={bgType} />
+          <Helmet>
+            <title>Personal Blog | Savas Vedova</title>
+            <meta
+              name={"description"}
+              content={
+                "Simple personal home page written in react.js. A bit about me and my projects."
+              }
+            />
+          </Helmet>
+          <Router>
+            <div>
+              <Header />
+              <Page>
+                <Switch>
+                  {routes.map(r => (
+                    <Route {...r} key={r.path} />
+                  ))}
+                  <Route
+                    path="*"
+                    render={() => (
+                      <h1
+                        style={{
+                          textAlign: "center",
+                          margin: "5rem auto 0 auto"
+                        }}
+                      >
+                        Whoops! Nothing found here.
+                      </h1>
+                    )}
+                  />
+                </Switch>
+              </Page>
+            </div>
+          </Router>
+        </div>
+      </context.Provider>
     );
   }
 }

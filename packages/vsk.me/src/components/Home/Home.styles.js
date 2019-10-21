@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Hello = styled.div`
-  background: rgba(0, 0, 0, 0.7);
+  background: ${p => (p.bgType === "dark" ? "none" : "rgba(0, 0, 0, 0.7)")};
   padding: 2rem;
   border-radius: 1rem;
   line-height: 1.5;
@@ -21,7 +21,7 @@ export const Hello = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
 
   a {
     color: #ff3a83;

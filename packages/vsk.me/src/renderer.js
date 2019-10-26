@@ -7,18 +7,12 @@ import Helmet from "react-helmet";
 import App from "./App";
 import routes from "./routes/server";
 
-const setup = async context => {
+const setup = async (context, res) => {
   try {
-    const resp = await context.route.setup(context);
-
-    if (typeof resp === "object" && resp.body) {
-      return resp;
-    }
+    await context.route.setup(context);
   } catch (e) {
-    return {
-      status: 500,
-      body: "Something went wrong..."
-    };
+    res.status(500);
+    res.send("Something went wrong");
   }
 };
 

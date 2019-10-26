@@ -11,12 +11,6 @@ import context from "./App.context";
 import sk from "@stormkit/api";
 import StoryblokClient from "storyblok-js-client";
 
-window.__SK__ = {
-  config: {
-    bgType: { targetings: [{ value: "dark" }] }
-  }
-};
-
 // init with access token
 const Storyblok = new StoryblokClient({
   accessToken: "IcHUfLc2h9ZwvCGTtM9qQgtt",

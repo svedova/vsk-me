@@ -7,6 +7,9 @@ export default () => (
     <NavLink to="/" activeClassName={"active"} exact>
       Home
     </NavLink>
+    <NavLink to="/blog" activeClassName={"active"}>
+      Blog
+    </NavLink>
     <NavLink to="/cv" activeClassName={"active"}>
       Curriculum
     </NavLink>

@@ -4,17 +4,17 @@ export const Header = styled.header`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 3.5rem;
+  padding: 0 1rem;
   color: white;
   margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
-  max-width: 960px;
+  max-width: 1024px;
 
   a {
     display: inline-block;
-    margin: 0 4rem;
     font-size: 1.5rem;
     color: #f9f9f9;
     opacity: 0.4;

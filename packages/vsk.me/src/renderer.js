@@ -39,12 +39,8 @@ export default async (req, res) => {
   };
 
   if (context.route && context.route.setup) {
-    const resp = await setup(context);
-
-    if (resp) {
-      log(req, resp);
-      return res.send(resp);
-    }
+    log(req, { statusCode: 200 });
+    return await setup(context, res);
   }
 
   if (!context.route) {

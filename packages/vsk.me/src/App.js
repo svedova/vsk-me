@@ -9,6 +9,22 @@ import { Page } from "./App.styles.js";
 import routes from "./routes/client";
 import context from "./App.context";
 import sk from "@stormkit/api";
+import StoryblokClient from "storyblok-js-client";
+
+window.__SK__ = {
+  config: {
+    bgType: { targetings: [{ value: "dark" }] }
+  }
+};
+
+// init with access token
+const Storyblok = new StoryblokClient({
+  accessToken: "IcHUfLc2h9ZwvCGTtM9qQgtt",
+  cache: {
+    clear: "auto",
+    type: "memory"
+  }
+});
 
 export default class App extends PureComponent {
   static defaultProps = {
@@ -26,7 +42,7 @@ export default class App extends PureComponent {
     const bgType = sk.config(request, response).get("bgType");
 
     return (
-      <context.Provider value={{ request, response }}>
+      <context.Provider value={{ request, response, Storyblok }}>
         <div className={bgType === "dark" ? "variant-1" : "variant-2"}>
           <Styles variant={bgType} />
           <Helmet>

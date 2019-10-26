@@ -17,23 +17,18 @@ const yandexVerification = `
 export default clientRoutes.concat(
   {
     path: "/robots.txt",
-    setup: async () => ({
-      headers: {
-        "Content-Type": "text/plain; charset=utf-8"
-      },
-      body: robotsTxt.trim()
-    })
+    setup: async res => {
+      res.setInterpolation(false);
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
+      res.send(robotsTxt.trim());
+    }
   },
   {
     path: "/yandex_1944487f2bf42ca9.html",
-    setup: async () => ({
-      headers: {
-        "Content-Type": "text/html; charset=utf-8"
-      },
-      body: yandexVerification.trim(),
-      options: {
-        interpolate: false
-      }
-    })
+    setup: async res => {
+      res.setInterpolation(false);
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.send(yandexVerification.trim());
+    }
   }
 );

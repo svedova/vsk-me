@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import context from "../../App.context";
-import { formatDate } from "./utils";
+import { formatDate, useWithHiglight } from "./utils";
 import { Content } from "./Blog.styles";
 import qs from "query-string";
 import Markdown from "react-markdown";
@@ -39,6 +39,7 @@ const SingleView = ({ Storyblok, request, match }) => {
   });
 
   useEffect(fetchEntry, []);
+  useWithHiglight(entry);
 
   if (!entry || !entry.content) {
     return "";

@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import context from "../../App.context";
 import * as styles from "./Blog.styles.js";
 import { Link } from "react-router-dom";
-import { formatDate } from "./utils";
+import { formatDate, useWithHiglight } from "./utils";
 import qs from "query-string";
 import SingleView from "./SingleView";
 
@@ -37,34 +37,9 @@ const useFetchEntries = ({ Storyblok, request, setLatest }) => () => {
 
 const Blog = ({ Storyblok, request }) => {
   const [latest, setLatest] = useState([]);
-  const [scriptLoaded, setScriptLoaded] = useState(
-    typeof window !== "undefined" && !!window.hljs
-  );
-
   const fetchEntries = useFetchEntries({ Storyblok, request, setLatest });
-
-  useEffect(() => {
-    if (typeof window === "undefined" || scriptLoaded) {
-      if (scriptLoaded) {
-        document.querySelectorAll("code").forEach(code => {
-          code.className = "es6";
-          window.hljs.highlightBlock(code);
-        });
-      }
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.onload = () => setScriptLoaded(true);
-    script.src = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"; // prettier-ignore
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href= "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css" // prettier-ignore
-    document.head.appendChild(link);
-    document.body.appendChild(script);
-  }, [scriptLoaded, setScriptLoaded, latest]);
-
   useEffect(fetchEntries, []);
+  useWithHiglight();
 
   return (
     <Container>

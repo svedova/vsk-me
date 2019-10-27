@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import context from "../../App.context";
 import { formatDate } from "./utils";
+import { Content } from "./Blog.styles";
 import qs from "query-string";
+import Markdown from "react-markdown";
 
 let unmounted = false;
 
@@ -28,7 +30,6 @@ const usefetchEntry = ({ Storyblok, request, setEntry, slug }) => () => {
 };
 
 const SingleView = ({ Storyblok, request, match }) => {
-  console.log(match);
   const [entry, setEntry] = useState({});
   const fetchEntry = usefetchEntry({
     Storyblok,
@@ -47,7 +48,9 @@ const SingleView = ({ Storyblok, request, match }) => {
     <div key={entry.content._uid}>
       <h2>{entry.content.title}</h2>
       <h3>{formatDate(entry.published_at)}</h3>
-      <div>{entry.content.body}</div>
+      <Content>
+        <Markdown source={entry.content.body} />
+      </Content>
     </div>
   );
 };

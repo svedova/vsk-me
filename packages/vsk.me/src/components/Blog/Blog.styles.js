@@ -48,6 +48,7 @@ export const Left = styled.div`
   li {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(40, 105, 140, 0.35);
+    display: flex;
 
     &:last-child {
       border-bottom: none;
@@ -67,17 +68,26 @@ export const Right = styled.div`
 
   /* The date object */
   h3 {
-    font-style: italic;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    color: #a1a1a1;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
   }
 `;
 
+export const Content = styled.div`
+  line-height: 1.5;
+`;
+
 export const ContinueReading = styled.div`
+  margin-top: 2rem;
   text-align: right;
 
   a {
     display: inline-block;
     margin-right: 0.5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;

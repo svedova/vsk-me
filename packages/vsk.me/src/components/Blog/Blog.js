@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import Markdown from "react-markdown";
 import { Route, Switch } from "react-router-dom";
 import context from "../../App.context";
 import * as styles from "./Blog.styles.js";
@@ -8,7 +9,7 @@ import { formatDate } from "./utils";
 import qs from "query-string";
 import SingleView from "./SingleView";
 
-const { Container, Left, Right, ContinueReading } = styles;
+const { Container, Left, Right, ContinueReading, Content } = styles;
 
 let unmounted = false;
 
@@ -62,7 +63,11 @@ const Blog = ({ Storyblok, request }) => {
                 <div key={blog.content._uid}>
                   <h2>{blog.content.title}</h2>
                   <h3>{formatDate(blog.published_at)}</h3>
-                  <div>{blog.content.short || blog.content.body}</div>
+                  <Content>
+                    <Markdown
+                      source={blog.content.short || blog.content.body}
+                    />
+                  </Content>
                   <ContinueReading>
                     <Link to={`/${blog.full_slug}`}>Continue reading</Link>
                     <span className="fa fa-angle-right" />

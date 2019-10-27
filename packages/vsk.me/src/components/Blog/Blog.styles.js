@@ -102,6 +102,25 @@ export const Content = styled.div`
     display: block;
   }
 
+  ul,
+  ol {
+    padding-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  ul li {
+    list-style-type: ;
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
+
+  li {
+    margin-left: 1rem;
+  }
+
   .hljs-string {
     color: #7ec699;
   }

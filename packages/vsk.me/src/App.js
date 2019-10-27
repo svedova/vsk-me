@@ -11,15 +11,6 @@ import context from "./App.context";
 import sk from "@stormkit/api";
 import StoryblokClient from "storyblok-js-client";
 
-// init with access token
-const Storyblok = new StoryblokClient({
-  accessToken: "IcHUfLc2h9ZwvCGTtM9qQgtt",
-  cache: {
-    clear: "auto",
-    type: "memory"
-  }
-});
-
 export default class App extends PureComponent {
   static defaultProps = {
     Router: BrowserRouter
@@ -31,12 +22,27 @@ export default class App extends PureComponent {
     response: PropTypes.object // For server side
   };
 
+  constructor(props) {
+    super(props);
+
+    // init with access token
+    this.Storyblok = new StoryblokClient({
+      accessToken: "IcHUfLc2h9ZwvCGTtM9qQgtt",
+      cache: {
+        clear: "auto",
+        type: "memory"
+      }
+    });
+  }
+
   render() {
     const { Router, request, response } = this.props;
     const bgType = sk.config(request, response).get("bgType");
 
     return (
-      <context.Provider value={{ request, response, Storyblok }}>
+      <context.Provider
+        value={{ request, response, Storyblok: this.Storyblok }}
+      >
         <div className={bgType === "dark" ? "variant-1" : "variant-2"}>
           <Styles variant={bgType} />
           <Helmet>

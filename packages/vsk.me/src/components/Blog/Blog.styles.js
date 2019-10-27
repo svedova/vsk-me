@@ -76,6 +76,47 @@ export const Right = styled.div`
 
 export const Content = styled.div`
   line-height: 1.5;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  p,
+  h2,
+  code {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: none;
+    }
+  }
+
+  code {
+    font-family: Monospace;
+    padding: 0.5rem;
+    background-color: black;
+    border-radius: 2px;
+    width: 100%;
+    color: white;
+    display: block;
+  }
+
+  .hljs-string {
+    color: #7ec699;
+  }
+
+  .hljs-keyword {
+    color: #cc99cd;
+  }
+
+  .hljs-attr {
+    color: #f08d49;
+  }
+
+  .hljs-tag {
+    color: greenyellow;
+  }
 `;
 
 export const ContinueReading = styled.div`

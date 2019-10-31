@@ -21,6 +21,7 @@ export default clientRoutes.concat(
       res.setInterpolation(false);
       res.setHeader("Content-Type", "text/plain; charset=utf-8");
       res.send(robotsTxt.trim());
+      return null;
     }
   },
   {
@@ -29,6 +30,7 @@ export default clientRoutes.concat(
       res.setInterpolation(false);
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.send(yandexVerification.trim());
+      return null;
     }
   }
 );

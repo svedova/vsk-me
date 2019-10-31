@@ -13,7 +13,7 @@ const { Container, Left, Right, ContinueReading, Content } = styles;
 
 let unmounted = false;
 
-const useFetchEntries = ({ Storyblok, request, setLatest }) => () => {
+const useFetchEntries = ({ storyblok, request, setLatest }) => () => {
   unmounted = false;
 
   const query =
@@ -21,23 +21,26 @@ const useFetchEntries = ({ Storyblok, request, setLatest }) => () => {
       ? qs.parse(window.location.search)
       : request.query;
 
-  Storyblok.get("cdn/stories", {
-    starts_with: "blog/",
-    version: (query || {})._storyblok_c === "blog-entry" ? "draft" : "published"
-  }).then(response => {
-    if (unmounted === false) {
-      setLatest(response.data.stories);
-    }
-  });
+  storyblok
+    .get("cdn/stories", {
+      starts_with: "blog/",
+      version:
+        (query || {})._storyblok_c === "blog-entry" ? "draft" : "published"
+    })
+    .then(response => {
+      if (unmounted === false) {
+        setLatest(response.data.stories);
+      }
+    });
 
   return () => {
     unmounted = true;
   };
 };
 
-const Blog = ({ Storyblok, request }) => {
-  const [latest, setLatest] = useState([]);
-  const fetchEntries = useFetchEntries({ Storyblok, request, setLatest });
+const Blog = ({ storyblok, request, contextData = { latest: [] } }) => {
+  const [latest, setLatest] = useState(contextData.latest || []);
+  const fetchEntries = useFetchEntries({ storyblok, request, setLatest });
   useEffect(fetchEntries, []);
   useWithHiglight();
 
@@ -85,8 +88,9 @@ const Blog = ({ Storyblok, request }) => {
 };
 
 Blog.propTypes = {
-  Storyblok: PropTypes.object,
-  request: PropTypes.object
+  storyblok: PropTypes.object,
+  request: PropTypes.object,
+  contextData: PropTypes.object // Server side context data
 };
 
 export default context.withConsumer(Blog);

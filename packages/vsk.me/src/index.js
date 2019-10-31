@@ -5,4 +5,7 @@ import App from "./App";
 const func =
   typeof window.__INITIAL_STATE__ !== "undefined" ? "hydrate" : "render";
 
-ReactDOM[func](<App />, document.getElementById("root"));
+ReactDOM[func](
+  <App contextData={{ inject: window.__data__ }} />,
+  document.getElementById("root")
+);

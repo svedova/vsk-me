@@ -13,6 +13,14 @@ export const formatDate = d => {
 };
 
 const highlight = () => {
+  if (
+    typeof window === "undefined" ||
+    typeof window.hljs === "undefined" ||
+    typeof window.hljs.highlightBlock === "undefined"
+  ) {
+    return;
+  }
+
   document.querySelectorAll("code").forEach(code => {
     code.className = "es6";
     window.hljs.highlightBlock(code);

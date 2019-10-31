@@ -6,10 +6,11 @@ import { matchPath } from "react-router-dom";
 import Helmet from "react-helmet";
 import App from "./App";
 import routes from "./routes/server";
+import Storyblok from "./storyblok";
 
 const setup = async (context, res) => {
   try {
-    await context.route.setup(context);
+    return await context.route.setup(context);
   } catch (e) {
     res.status(500);
     res.send("Something went wrong");
@@ -28,13 +29,20 @@ const log = (req, res) => {
 
 export default async (req, res) => {
   let status = 200;
+
   const context = {
-    route: routes.find(r => matchPath(req.path, r))
+    route: routes.find(r => matchPath(req.path, r)),
+    state: {},
+    request: req,
+    Storyblok
   };
 
   if (context.route && context.route.setup) {
     log(req, { statusCode: 200 });
-    return await setup(context, res);
+
+    if ((await setup(context, res)) === null) {
+      return;
+    }
   }
 
   if (!context.route) {
@@ -47,7 +55,12 @@ export default async (req, res) => {
 
   const sheet = new ServerStyleSheet();
   const jsx = sheet.collectStyles(
-    <App Router={router} request={req} response={res} />
+    <App
+      Router={router}
+      request={req}
+      response={res}
+      contextData={context.state}
+    />
   );
 
   const body = renderToString(jsx);
@@ -59,5 +72,10 @@ export default async (req, res) => {
 
   res.status(status);
   log(req, context);
-  return res.send({ content: body, head });
+
+  const inject = context.state
+    ? `<script>window.__data__=${JSON.stringify(context.state)}</script>`
+    : "";
+
+  return res.send({ content: body, head, context: inject });
 };

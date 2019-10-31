@@ -7,9 +7,9 @@ import Header from "./components/Layout/Header";
 import Styles from "./style/global";
 import { Page } from "./App.styles.js";
 import routes from "./routes/client";
-import context from "./App.context";
 import sk from "@stormkit/api";
-import StoryblokClient from "storyblok-js-client";
+import context from "./App.context";
+import storyblok from "./storyblok";
 
 export default class App extends PureComponent {
   static defaultProps = {
@@ -19,30 +19,16 @@ export default class App extends PureComponent {
   static propTypes = {
     Router: PropTypes.func,
     request: PropTypes.object, // For server side
-    response: PropTypes.object // For server side
+    response: PropTypes.object, // For server side
+    contextData: PropTypes.object // For server side
   };
 
-  constructor(props) {
-    super(props);
-
-    // init with access token
-    this.Storyblok = new StoryblokClient({
-      accessToken: "IcHUfLc2h9ZwvCGTtM9qQgtt",
-      cache: {
-        clear: "auto",
-        type: "memory"
-      }
-    });
-  }
-
   render() {
-    const { Router, request, response } = this.props;
+    const { Router, request, response, contextData } = this.props;
     const bgType = sk.config(request, response).get("bgType");
 
     return (
-      <context.Provider
-        value={{ request, response, Storyblok: this.Storyblok }}
-      >
+      <context.Provider value={{ request, response, storyblok, contextData }}>
         <div className={bgType === "dark" ? "variant-1" : "variant-2"}>
           <Styles variant={bgType} />
           <Helmet>

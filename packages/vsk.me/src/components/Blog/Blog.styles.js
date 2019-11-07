@@ -14,6 +14,10 @@ export const Container = styled.div`
     font-size: 1rem;
     font-weight: bold;
   }
+
+  @media (max-width: 516px) {
+    flex-direction: column;
+  }
 `;
 
 export const Left = styled.div`
@@ -23,6 +27,11 @@ export const Left = styled.div`
   width: 300px;
   padding: 1rem;
   background: white;
+
+  @media (max-width: 516px) {
+    margin: 0 0 1rem 0;
+    width: 100%;
+  }
 
   h3 {
     font-weight: bold;
@@ -61,6 +70,11 @@ export const Right = styled.div`
   margin-left: 2rem;
   background: white;
   padding: 1rem;
+
+  @media (max-width: 516px) {
+    margin: 0;
+    width: 100%;
+  }
 
   h2 {
     font-size: 1.5rem;

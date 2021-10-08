@@ -7,7 +7,7 @@ import { Container, HireMe, HireMeLink, Hello } from "./Home.styles.js";
 class Home extends PureComponent {
   static propTypes = {
     request: PropTypes.object, // Server side request object
-    response: PropTypes.object // Server side response object
+    response: PropTypes.object, // Server side response object
   };
 
   componentDidMount() {
@@ -27,13 +27,13 @@ class Home extends PureComponent {
           Hi there,
           <br /> My name is Savas. Currently I'm working at{" "}
           <a
-            href="https://www.tutti.ch"
+            href="https://www.gitlab.org"
             target="_blank"
             rel="noopener noreferrer"
           >
-            tutti.ch
+            GitLab
           </a>{" "}
-          at my day job and developing{" "}
+          and developing{" "}
           <a
             href="https://www.stormkit.io"
             target="_blank"
@@ -43,7 +43,7 @@ class Home extends PureComponent {
           </a>{" "}
           during my spare time.
           <br />
-          Check out my CV or reach me out from Social Media.
+          Reach out to me from Social Media.
           <br /> Cheers 👋🏻
         </Hello>
         <HireMe id="hire-me">

@@ -1,8 +1,5 @@
 app:
-  - id: "3289604702"
-
-    redirects:
-      - from: www.vsk.me
-        to: vsk.me
-        status: 301
-        replace: true
+  - redirects:
+      - from: /*
+        to: /index.html
+        assets: false

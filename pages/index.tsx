@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home(): React.ReactElement {
@@ -16,7 +15,6 @@ export default function Home(): React.ReactElement {
 
       <main className={styles.main}>
         <p className={styles.profile}>
-          {/* <Image src="/avatar.png" alt="Savas Vedova" /> */}
           <img src="/avatar.png" alt="Savas Vedova" />
         </p>
 

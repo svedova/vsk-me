@@ -18,7 +18,7 @@ export default function Home(): React.ReactElement {
           <img src="/avatar.png" alt="Savas Vedova" />
         </p>
 
-        <h1 className={styles.title}>Hi there 👋</h1>
+        <h1 className={styles.title}>Hey there 👋</h1>
 
         <div className={styles.grid}>
           <a

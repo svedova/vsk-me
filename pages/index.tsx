@@ -48,7 +48,7 @@ export default function Home(): React.ReactElement {
             className={styles.card}
           >
             <h2>You can reach out to me &rarr;</h2>
-            <p>On Twitter</p>
+            <p>on Twitter</p>
           </a>
 
           <a

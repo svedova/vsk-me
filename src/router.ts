@@ -47,7 +47,7 @@ const generateRoutes = async (): Promise<Array<Route>> => {
 const defaultSEO: OG = {
   title: "Home page",
   description:
-    "This is my personal website. Here, you can find information about me and follow my blog posts.",
+    "This is my personal website. Here, I share updates about my life and write about tech and startups.",
   image: {},
   twitter: {
     card: "summary",

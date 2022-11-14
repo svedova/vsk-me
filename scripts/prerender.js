@@ -62,18 +62,17 @@ const generateRoutes = async () => {
 
   // pre-render each route...
   for (const route of routesToPrerender) {
-    const { status, content } = await render(route.path);
+    const { status, content, head } = await render(route.path);
     const preloads = manifest[route.file];
 
     if (status !== 200) {
       continue;
     }
 
+    const tags = preloads?.map((file) => renderPreloadLink(file)).join(" ");
     const html = template
-      .replace(
-        "</head>",
-        `${preloads?.map((file) => renderPreloadLink(file)).join(" ")}</head>`
-      )
+      .replace("</head>", `${head}</head>`)
+      .replace("</head>", `${tags}</head>`)
       .replace(`<div id="root"></div>`, `<div id="root">${content}</div>`)
       .replace(/>\s+</g, "><");
 

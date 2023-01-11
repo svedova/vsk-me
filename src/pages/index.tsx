@@ -1,4 +1,3 @@
-import type { UseFetchDataFunc } from "~/router";
 import ArrowLongRightIcon from "@heroicons/react/24/outline/ArrowLongRightIcon";
 import Layout from "../components/Layout";
 import avatar from "../assets/avatar.png";

@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { PathMatch } from "react-router";
+import type { OG } from "~/entry-server";
+import { useContext, useEffect, useState } from "react";
+import Context from "~/context";
 
 const files = import.meta.glob("/src/content/**/*.md", { as: "raw" });
-const cache: Record<string, { content: string; attributes: Attributes }> = {};
 
 export interface Attributes {
   title?: string;
@@ -17,16 +17,24 @@ interface WithContentReturnValue {
   attributes: Attributes;
 }
 
-export const useWithContent = (match: PathMatch): WithContentReturnValue => {
-  const cached = cache[match.params.name!];
+interface UseWithContentProps {
+  title: string;
+  category: string;
+}
+
+export const useWithContent = ({
+  title,
+  category,
+}: UseWithContentProps): WithContentReturnValue => {
+  const { data: cached } = useContext(Context);
   const [attributes, setAttributes] = useState<Attributes>(cached?.attributes);
   const [content, setContent] = useState<string>(cached?.content);
 
   useEffect(() => {
-    useFetchData(match).then((data) => {
-      if (data?.content) {
-        setAttributes(data.attributes);
-        setContent(data.content);
+    fetchData({ title, category }).then(({ context }) => {
+      if (context?.content) {
+        setAttributes(context.attributes);
+        setContent(context.content);
       }
     });
   }, []);
@@ -36,7 +44,7 @@ export const useWithContent = (match: PathMatch): WithContentReturnValue => {
 
 export const parseAttributes = (
   content: string,
-  match: PathMatch
+  category?: string
 ): Attributes => {
   const attrs: Attributes = {};
   const index = content.indexOf("---", 2);
@@ -47,36 +55,41 @@ export const parseAttributes = (
       .split(/\n/g)
       .filter((i) => i)
       .forEach((str) => {
-        const [key, value] = str.split(":");
-        attrs[key.toLowerCase() as keyof Attributes] = value.trim();
+        const [key, ...value] = str.split(":");
+        attrs[key.toLowerCase() as keyof Attributes] = value.join(":").trim();
       });
   }
 
-  attrs.category = match.params.category;
+  attrs.category = category;
   return attrs;
 };
 
-export const useFetchData = async (
-  match: PathMatch
-): Promise<WithContentReturnValue | void> => {
-  let file;
+interface FetchDataProps {
+  category: string;
+  title: string;
+}
 
-  if (match.params.category) {
-    file =
-      files[`/src/content/${match.params.category}/${match.params.name}.md`];
-  } else {
-    file = files[`/src/content/${match.params.name}.md`];
-  }
+// Fetch blog post
+export const fetchData = async ({
+  category,
+  title,
+}: FetchDataProps): Promise<{
+  context: WithContentReturnValue | void;
+  head: OG;
+}> => {
+  const file = files[`/src/content/${category}/${title}.md`];
 
   if (!file) {
-    return;
+    return { context: undefined, head: {} };
   }
 
   const content = await file();
   const index = content.indexOf("---", 2);
-  const attrs = parseAttributes(content, match);
+  const attrs = parseAttributes(content, category);
   const article = index > -1 ? content.slice(index + 4) : content;
 
-  cache[match.params.name!] = { content: article, attributes: attrs };
-  return cache[match.params.name!]!;
+  return {
+    context: { content: article, attributes: attrs },
+    head: { title: attrs.title, description: attrs.description },
+  };
 };

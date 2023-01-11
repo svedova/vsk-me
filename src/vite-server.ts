@@ -63,4 +63,47 @@ async function createServer() {
   });
 }
 
-createServer();
+async function generateStaticPages() {
+  const routesToPrerender = [
+    "/",
+    "/blog",
+    "/blog/programming/all-in-one-ssr-ssg-spa-api",
+  ];
+
+  // Create Vite server to load the routes files
+  const vite = await createViteServer({
+    server: { middlewareMode: true },
+    appType: "custom",
+  });
+
+  const { render } = await vite.ssrLoadModule("./src/entry-server.tsx");
+
+  const dist = path.join(path.dirname(__dirname), ".stormkit/public");
+  const template = fs.readFileSync(path.join(dist, "src/index.html"), "utf-8");
+
+  for (const r of routesToPrerender) {
+    const data = await render(r);
+    const fileName = r.endsWith("/") ? `${r}index.html` : `${r}.html`;
+    const absPath = path.join(dist, fileName);
+    let content = template
+      .replace(`<div id="root"></div>`, `<div id="root">${data.content}</div>`)
+      .replace(`</head>`, `${data.head}</head>`)
+      .replace(/\/src\/assets/g, "");
+
+    fs.mkdirSync(path.dirname(absPath), { recursive: true });
+    fs.writeFileSync(absPath, content, "utf-8");
+
+    console.log(`Prerendered: ${fileName}`);
+  }
+
+  await vite.close();
+}
+
+(async () => {
+  if (process.env.SSG === "true") {
+    console.info("Detected SSG=true - generating static routes...");
+    await generateStaticPages();
+  } else {
+    createServer();
+  }
+})();

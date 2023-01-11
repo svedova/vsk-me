@@ -1,13 +1,13 @@
-import type { PathMatch } from "react-router";
+import { useContext, useEffect, useState } from "react";
+import Context from "~/context";
+import { FetchDataFunc } from "~/router";
 import { Attributes, parseAttributes } from "./[category]/_actions";
-import { useEffect, useState } from "react";
 
 interface Meta extends Attributes {
   url: string;
 }
 
 const files = import.meta.glob("/src/content/**/*.md", { as: "raw" });
-let cache: Post[] = [];
 
 export interface Post {
   url: string;
@@ -16,30 +16,43 @@ export interface Post {
   attributes: Attributes;
 }
 
-export const useWithPosts = (match: PathMatch) => {
-  const [allPosts, setAllPosts] = useState<Post[]>(cache);
+type Params = {
+  category: string;
+};
+
+export const useWithPosts = ({ category }: Params) => {
+  const cache = useContext(Context);
+  const [allPosts, setAllPosts] = useState<Post[]>(cache.data || []);
 
   useEffect(() => {
-    useFetchData(match).then((posts) => {
-      setAllPosts(posts);
+    fetchData({ category }).then(({ context }: { context: Post[] }) => {
+      setAllPosts(context);
     });
   }, []);
 
   return allPosts;
 };
 
-export const useFetchData = async (match: PathMatch): Promise<Post[]> => {
-  const attrs: Meta[] = [];
+interface FetchDataProps {
+  category?: string;
+}
+
+// Fetch all posts in the `src/content` folder.
+export const fetchData: FetchDataFunc = async ({
+  category,
+}: FetchDataProps): Promise<{ head: any; context: Post[] }> => {
+  const meta: Meta[] = [];
 
   for (const file in files) {
     const content = await files[file]();
-    attrs.push({
-      ...parseAttributes(content, match),
+
+    meta.push({
+      ...parseAttributes(content, category),
       url: file.replace("/src/content", ""),
     });
   }
 
-  cache = attrs
+  const context = meta
     .map((attr) => {
       const pieces = attr.url.replace(/-/g, " ").replace(".md", "").split("/");
       const name = pieces.pop() || "";
@@ -60,5 +73,5 @@ export const useFetchData = async (match: PathMatch): Promise<Post[]> => {
       return dateA > dateB ? -1 : dateA < dateB ? 1 : 0;
     });
 
-  return cache;
+  return { context, head: {} };
 };

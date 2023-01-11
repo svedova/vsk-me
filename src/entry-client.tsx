@@ -1,15 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import currentRoute from "./router";
+import { BrowserRouter } from "react-router-dom";
+import createRoutes from "./router";
+import App from "./App";
+import Context from "./context";
 import "./index.css";
 
+declare global {
+  interface Window {
+    CONTEXT: any;
+  }
+}
+
 async function createRoot() {
-  const route = await currentRoute(window.location.pathname);
+  const { routes } = await createRoutes(window.location.pathname);
+  let data = window.CONTEXT;
 
   ReactDOM.hydrateRoot(
     document.getElementById("root") as HTMLElement,
     <React.StrictMode>
-      {route ? <route.App match={route.match} /> : <div>Page is not found</div>}
+      <Context.Provider value={{ data }}>
+        <BrowserRouter>
+          <App routes={routes} />
+        </BrowserRouter>
+      </Context.Provider>
     </React.StrictMode>
   );
 }

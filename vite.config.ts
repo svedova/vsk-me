@@ -17,7 +17,7 @@ export default defineConfig({
     rollupOptions: {
       input: { "index.html": "./src/index.html" },
     },
-    outDir: "dist/static",
+    outDir: ".stormkit/public",
   },
   plugins: [react()],
 });

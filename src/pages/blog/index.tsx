@@ -1,18 +1,19 @@
-import type { PathMatch } from "react-router";
 import { useState, useEffect, useMemo } from "react";
 import cn from "classnames";
+import { useParams } from "react-router";
 import ArrowLongRightIcon from "@heroicons/react/24/outline/ArrowLongRightIcon";
 import Layout from "~/components/Layout";
 import Header from "~/components/Layout/Header";
 import { useWithPosts, Post } from "./_actions";
-export { useFetchData } from "./_actions";
+export { fetchData } from "./_actions";
 
-interface Props {
-  match: PathMatch;
-}
+type BlogParams = {
+  category: string;
+};
 
-const BlogIndex: React.FC<Props> = ({ match }) => {
-  const allPosts = useWithPosts(match);
+const BlogIndex: React.FC = () => {
+  const params = useParams<BlogParams>();
+  const allPosts = useWithPosts({ category: params.category! });
   const [posts, setPosts] = useState<Post[]>(allPosts);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
@@ -69,6 +70,7 @@ const BlogIndex: React.FC<Props> = ({ match }) => {
           <div className="mt-2 text-center">
             {categories.map((category) => (
               <span
+                key={category}
                 className={cn(
                   `text-xs font-semibold inline-block py-3 px-6 uppercase hover:opacity-100
                 rounded-full text-pink-600 bg-pink-200 last:mr-0 mr-2 cursor-pointer
@@ -128,8 +130,8 @@ const BlogIndex: React.FC<Props> = ({ match }) => {
             >
               <div className="flex-grow">
                 <div className="flex items-center mt-2">
-                  <a href={post.url} className="capitalize text-2xl font-bold">
-                    {post.name}
+                  <a href={post.url} className="text-2xl font-bold">
+                    {post.attributes.title}
                   </a>
 
                   {post.category && (

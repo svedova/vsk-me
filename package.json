@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "build:ssg": "tsc && SSG=true node --loader ts-node/esm ./src/vite-server.ts",
     "preview": "vite preview",
-    "generate": "rm -rf ./dist && vite build --ssrManifest --outDir dist/static && npm run build:server && node ./scripts/prerender",
     "server": "nodemon --watch './**/*.ts' --exec 'node --loader ts-node/esm' src/vite-server.ts"
   },
   "dependencies": {

@@ -57,7 +57,7 @@ const renderHead = (overwrite?: OG) => {
       <meta name="description" content="${tags.description}" />
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="Savas Vedova | {tags.title}" />
+      <meta property="og:title" content="Savas Vedova | ${tags.title}" />
       <meta property="og:url" content="https://vsk.me/${path}" />
       <meta property="og:description" content="${tags.description}" />
       <meta name="twitter:card" content="${tags.twitter!.card}" />

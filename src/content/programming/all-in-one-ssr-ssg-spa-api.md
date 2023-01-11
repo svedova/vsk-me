@@ -1,7 +1,7 @@
 ---
 Title: All in one: SPA, SSR, SSG and API
 Description: Setup a Vite.js app that depending on the route, it either serves static content or fallbacks to server-side renderings.
-Date: 2023-11-01
+Date: 2023-01-11
 Draft: true
 ---
 

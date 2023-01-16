@@ -1,5 +1,6 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ArrowLongLeftIcon from "@heroicons/react/24/outline/ArrowLongLeftIcon";
+import { Modal } from "@mui/material";
 import { useParams } from "react-router";
 import markdown from "markdown-it";
 import Layout from "~/components/Layout";
@@ -14,6 +15,7 @@ const md = new markdown({ html: true, linkify: true }).use(prism);
 
 const Post: React.FC = () => {
   const params = useParams();
+  const [fullScreenImgSrc, setFullScreenImgSrc] = useState<string>();
   const { content, attributes } = useWithContent({
     title: params.title!,
     category: params.category!,
@@ -29,6 +31,22 @@ const Post: React.FC = () => {
         md.render(content || ""),
     };
   }, [content]);
+
+  useEffect(() => {
+    const listener = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+
+      if (target.tagName === "IMG") {
+        setFullScreenImgSrc(target.getAttribute("src") || "");
+      }
+    };
+
+    document.body.addEventListener("click", listener);
+
+    return () => {
+      document.body.removeEventListener("click", listener);
+    };
+  }, []);
 
   if (!content || !attributes) {
     return (
@@ -49,6 +67,20 @@ const Post: React.FC = () => {
   return (
     <Layout className="bg-white">
       <Header />
+      <Modal
+        open={Boolean(fullScreenImgSrc)}
+        onClose={() => setFullScreenImgSrc(undefined)}
+        className="p-4"
+        aria-labelledby="full-screen-image"
+        aria-describedby="full-screen-image"
+      >
+        <div className="p-12 w-full h-full bg-slate-900 text-center">
+          <img
+            src={fullScreenImgSrc}
+            className="max-w-full max-h-full m-auto"
+          />
+        </div>
+      </Modal>
       <section className="max-w-4xl m-auto mt-4 p-16 bg-gray-50">
         <div className="flex items-center">
           <div className="flex flex-1 items-center">

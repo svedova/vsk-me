@@ -1,10 +1,18 @@
+import type { RenderFunction } from "./entry-server";
 import fs from "fs";
 import path from "path";
 import express from "express";
 import { fileURLToPath } from "node:url";
 import { createServer as createViteServer } from "vite";
+import { matchPath } from "@stormkit/serverless/router";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+function injectContent(head: string, content: string, template: string) {
+  return template
+    .replace(`</head>`, `${head}</head>`)
+    .replace(`<div id="root"></div>`, `<div id="root">${content}</div>`);
+}
 
 async function createServer() {
   const app = express();
@@ -21,32 +29,52 @@ async function createServer() {
   // if you use your own express router (express.Router()), you should use router.use
   app.use(vite.middlewares);
 
+  // Add support for a local environment API.
+  app.all(/\/api(\/.*|$)/, async (req, res) => {
+    const route = matchPath(
+      path.join(__dirname, "api"),
+      req.originalUrl.split(/\?|#/)[0].replace("/api", ""),
+      req.method
+    );
+
+    if (!route) {
+      res.status(404);
+      res.send();
+      return;
+    }
+
+    const handler = (await vite.ssrLoadModule(`/src/api/${route}`)) as {
+      default: express.Handler;
+    };
+
+    handler.default(req, res, () => {});
+  });
+
   app.get("*", async (req, res, next) => {
     try {
-      const url = req.originalUrl.split(/\?#/)[0];
+      const url: string = req.originalUrl.split(/\?#/)[0] || "/";
 
       // // 1. Read and apply Vite HTML transforms. This injects the Vite HMR client, and
       // //    also applies HTML transforms from Vite plugins, e.g. global preambles
       // //    from @vitejs/plugin-react
       const template: string = await vite.transformIndexHtml(
         req.originalUrl,
-        fs.readFileSync(path.resolve(__dirname, "index.html"), "utf-8")
+        fs.readFileSync(path.resolve(__dirname, "..", "index.html"), "utf-8")
       );
 
       // 2. Load the server entry. vite.ssrLoadModule automatically transforms
       //    your ESM source code to be usable in Node.js! There is no bundling
       //    required, and provides efficient invalidation similar to HMR.
-      const { render } = await vite.ssrLoadModule("./src/entry-server");
-      const { status, content, head } = await render(url);
+      const { render } = (await vite.ssrLoadModule("./src/entry-server")) as {
+        render: RenderFunction;
+      };
+
+      const rendered = await render(url);
 
       return res
-        .status(status)
+        .status(rendered.status)
         .set({ "Content-Type": "text/html" })
-        .send(
-          template
-            .replace(`<div id="root"></div>`, `<div id="root">${content}</div>`)
-            .replace(`</head>`, `${head}</head>`)
-        );
+        .send(injectContent(rendered.head, rendered.content, template));
     } catch (e) {
       // If an error is caught, let Vite fix the stack trace so it maps back to
       // your actual source code.
@@ -64,37 +92,56 @@ async function createServer() {
 }
 
 async function generateStaticPages() {
-  const routesToPrerender = [
-    "/",
-    "/blog",
-    "/blog/programming/all-in-one-ssr-ssg-spa-api",
-  ];
-
   // Create Vite server to load the routes files
   const vite = await createViteServer({
     server: { middlewareMode: true },
     appType: "custom",
   });
 
-  const { render } = await vite.ssrLoadModule("./src/entry-server.tsx");
+  const { default: routesToPrerender } = (await vite.ssrLoadModule(
+    "./src/prerender"
+  )) as { default: string[] };
+
+  const { render } = await vite.ssrLoadModule("./src/entry-server");
 
   const dist = path.join(path.dirname(__dirname), ".stormkit/public");
-  const template = fs.readFileSync(path.join(dist, "src/index.html"), "utf-8");
+
+  if (!fs.existsSync(dist)) {
+    throw new Error(
+      ".stormkit/public is not available. Did you run `npm run build:spa`?"
+    );
+  }
+
+  const template = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
+  const manifest = JSON.parse(
+    fs.readFileSync(path.join(dist, "manifest.json"), "utf-8")
+  );
+
+  // Push `/` to the end if any.
+  routesToPrerender.sort((a: string, b: string) => {
+    return a === "/" || b === "/" ? -1 : 0;
+  });
 
   for (const r of routesToPrerender) {
     const data = await render(r);
     const fileName = r.endsWith("/") ? `${r}index.html` : `${r}.html`;
     const absPath = path.join(dist, fileName);
-    let content = template
-      .replace(`<div id="root"></div>`, `<div id="root">${data.content}</div>`)
-      .replace(`</head>`, `${data.head}</head>`)
-      .replace(/\/src\/assets/g, "");
+    let content = injectContent(data.head, data.content, template);
+
+    // Fix the path to the static assets.
+    Object.keys(manifest).forEach((fileName) => {
+      if (fileName.startsWith("src/assets")) {
+        content = content.replace(fileName, manifest[fileName].fileName);
+      }
+    });
 
     fs.mkdirSync(path.dirname(absPath), { recursive: true });
     fs.writeFileSync(absPath, content, "utf-8");
 
     console.log(`Prerendered: ${fileName}`);
   }
+
+  fs.unlinkSync(path.join(dist, "manifest.json"));
 
   await vite.close();
 }

@@ -1,7 +1,5 @@
 import { createContext } from "react";
 
-const context = createContext<{ data: any }>({
-  data: undefined,
-});
+const context = createContext<any>({});
 
 export default context;

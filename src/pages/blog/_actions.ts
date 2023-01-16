@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import Context from "~/context";
-import { FetchDataFunc } from "~/router";
 import { Attributes, parseAttributes } from "./[category]/_actions";
 
 interface Meta extends Attributes {
@@ -22,7 +21,7 @@ type Params = {
 
 export const useWithPosts = ({ category }: Params) => {
   const cache = useContext(Context);
-  const [allPosts, setAllPosts] = useState<Post[]>(cache.data || []);
+  const [allPosts, setAllPosts] = useState<Post[]>(cache || []);
 
   useEffect(() => {
     fetchData({ category }).then(({ context }: { context: Post[] }) => {

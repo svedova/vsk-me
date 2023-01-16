@@ -14,8 +14,9 @@ export default defineConfig({
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
   },
   build: {
+    manifest: true,
     rollupOptions: {
-      input: { "index.html": "./src/index.html" },
+      input: "index.html",
     },
     outDir: ".stormkit/public",
   },

@@ -1,41 +1,82 @@
 ---
 Title: All in one: SPA, SSR, SSG and API
-Description: Setup a Vite.js app that depending on the route, it either serves static content or fallbacks to server-side renderings.
+Description: Set up a Vite.js app that depending on the route, it either serves static content or fallbacks to server-side rendering.
 Date: 2023-01-11
-Draft: true
+# Draft: true
 ---
 
 Recently, I started to work on [feez.ws](https://www.feez.ws), a new app that allows tracking progress in public, giving you a platform to share your journey with friends, family, and a community of like-minded individuals.
 
-## Why do it yourself while there are many frameworks out there?
+I am also the founder of Stormkit, so this was a perfect case for me **to dogfood my product and host Feez on Stormkit**.
 
-I am the founder of Stormkit, so this was a perfect case for me **to dogfood my product and host Feez on Stormkit**. 
+In this blog post, I'll write about how I used [Vite](https://vitejs.dev/) with [React](https://reactjs.org/) to create a monorepo capable of server-side rendering, generating static pages and, at the same time, acting as a single page app. Hang on tight!
+
+## How to structure the repository
+
+Before starting to work on the application, I roughly had the following structure in mind:
+
+| Route         | Page type             | Description | SEO  |
+| ------------- | --------------------- | ----------- | ---- |
+| feez.ws       | Static page (SSG)     | Home page, terms, pricing, etc... all static content. | Yes |
+| feez.ws/my    | Single page app (SPA) | Authenticated part of the application. | No | 
+| feez.ws/:name | Dynamic page (SSR)    | User-generated content. | Yes |
+
+Usually, it is a common practice to have two different repositories for the landing page and the application. However, with Feez, I wanted to keep things simple and manage only one code base. So essentially, the following
+image illustrates what I wanted to achieve: 
+
+![Page rendering logic](/content/programming/2023-01-12-page-rendering.svg)
+
+## Why not use a framework?
 
 As a matter of fact, I love using React, but I prefer not to use frameworks for a few reasons:
+
 1. They change frequently, and it's hard to keep them up-to-date.
 2. Every other day, there is a new framework in the space, and their popularity changes frequently.
 3. The learning curve
 
-Since I started experimenting with vite.js, I found a built-in way to make everything these frameworks are doing, which I needed for my App: server-side rendering (SSR), static site generator (SSG), single-page application (SPA), and an application programming interface (API). 
-- **SSG**: [The landing page](https://www.feez.ws) and several other pages like about, pricing, and docs are static. Therefore I needed a static-site generator for these pages. 
-- **SSR**: The pages where makers share their progress will be dynamic. Since these will be public, and I'd like them to be SEO-friendly, I needed SSR for these endpoints. 
-- **SPA**: The authenticated part, where the maker can adjust their profile, submit a new goal, or track progress, does not need any SEO. So I can leave these endpoints as an SPA. 
+Since I started experimenting with Vite, I found a built-in way to make everything these frameworks are doing, which I needed for my App: server-side rendering (SSR), static site generator (SSG), single-page application (SPA), and an application programming interface (API).
 
-With traditional apps, one way to meet all requirements listed above is to have separate repositories. For instance, the landing page is usually an SSG, while the application is an SPA, and these live in different repositories. However, with Feez, I wanted to keep things simple and manage only one code base.
+## How does Server side rendering work?
 
-Briefly, this is the flow chart I had in mind: 
+Before getting into details, let's have a look at the following chart:
 
-![Page rendering logic](/content/programming/2023-11-03-page-rendering.svg)
+![Server side rendering flow chart](/content/programming/2023-01-12-ssr-flow-chart.svg)
 
-## Hands-On
+The flow that the image describes is as follows:
 
-The first thing I did was scaffold a new project using vite.js and choose React/TypeScript:
+1. User makes a request
+2. Our Node Server receives the request
+3. It loads the server entry point. At this stage we:
+    * Fetch async data
+    * Feed the App with the data
+    * Router renders the correct page with data
+    * Return the rendered content and metatags
+4. Serve the response to the browser
+5. Document is parsed. It loads our client-side application.
+6. The client-side application hydrates on top of the server-side rendered page.
+    * Hydration means how React “attaches” to existing HTML that was already rendered by React in a server environment.
+7. After the hydration is complete, the App is reactive. 
+
+## How to generate static pages?
+
+This step is simply another little addition to the server-side rendering. All we have to do is to spawn a Node Server, ask it to render pages that we want to be static, take a "snapshot" of the response and, save it into an HTML file.
+
+## How does hydration work? 
+
+There are two things to keep in mind here: 
+
+1. Use React.hydrateRoot instead of React.createRoot when mounting the App
+2. If your page is making an async request, inject the response into the document on the server side and retrieve it on the client side to avoid redundant calls to the API.
+
+## How to set up the Node Server?
+
+The first thing I did was scaffold a new project using Vite and choose React/TypeScript:
 
 ```bash
 npm create vite@latest
 ```
 
-Typically, this is enough if you need an SPA but if you need SSR and/or SSG, you'll need to extend it and create
+Typically, this is enough if you need an SPA, but if you need SSR and/or SSG, you'll need to extend it and create
 your own entry file:
 
 ```js
@@ -141,7 +182,7 @@ index 5d197e2..e6bae81 100644
  }
 ```
 
-Now, if you run `npm run dev`, you'll see that a development server is spawned. However, when you visit http://localhost:5173 it won't work because we still miss the `src/entry-server.js` file. I want to avoid getting into the details of how to implement that file because the possibilities are endless. The idea is simple, though. You just need to return the head properties (for SEO) and the rendered content. Here's an example:
+Now, if you run `npm run dev`, you'll see that a development server is spawned. However, when you visit http://localhost:5173 it won't work because we still miss the `src/entry-server.js` file. I want to avoid getting into the details of how to implement that file because the possibilities are endless. It's basically up to you. The idea is simple, though. You need to return the head properties (for SEO) and the rendered content. Here's an example:
 
 ```js
 import { renderToString } from "react-dom/server";
@@ -239,4 +280,6 @@ export const render = async (url) => {
 }
 ```
 
-So, now, the application can receive a request, make the necessary call based on the route, and render that content on the server side. Perfect! 
+So, now, the application can receive a request, make the necessary call based on the route, and render that content on the server side.
+
+

@@ -1,4 +1,3 @@
-import type { OG } from "~/entry-server";
 import { useContext, useEffect, useState } from "react";
 import Context from "~/context";
 
@@ -26,7 +25,7 @@ export const useWithContent = ({
   title,
   category,
 }: UseWithContentProps): WithContentReturnValue => {
-  const { data: cached } = useContext(Context);
+  const cached = useContext(Context);
   const [attributes, setAttributes] = useState<Attributes>(cached?.attributes);
   const [content, setContent] = useState<string>(cached?.content);
 
@@ -75,7 +74,7 @@ export const fetchData = async ({
   title,
 }: FetchDataProps): Promise<{
   context: WithContentReturnValue | void;
-  head: OG;
+  head: SEO;
 }> => {
   const file = files[`/src/content/${category}/${title}.md`];
 

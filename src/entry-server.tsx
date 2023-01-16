@@ -17,14 +17,15 @@ interface RenderReturn {
 export type RenderFunction = (url: string) => Promise<RenderReturn>;
 
 const defaultSEO: SEO = {
-  title: "Vite + React (SSR, SSG, SPA)",
-  description: "Mono repo template for apps needing ssr, ssg and/or spa.",
+  title: "Savas Vedova",
+  description:
+    "Personal website of Savas Vedova. Reach me out, or follow my blog!",
   domain: {
-    name: "",
-    url: "",
+    name: "Savas Vedova",
+    url: "https://vsk.me",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     creator: "@savasvedova",
   },
 };

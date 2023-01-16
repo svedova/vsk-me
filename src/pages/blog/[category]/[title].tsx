@@ -81,7 +81,7 @@ const Post: React.FC = () => {
           />
         </div>
       </Modal>
-      <section className="max-w-4xl m-auto mt-4 p-16 bg-gray-50">
+      <section className="max-w-4xl m-auto mt-4 p-4 md:p-16 bg-gray-50">
         <div className="flex items-center">
           <div className="flex flex-1 items-center">
             <span

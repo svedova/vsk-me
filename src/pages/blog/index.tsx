@@ -66,7 +66,7 @@ const BlogIndex: React.FC = () => {
     <Layout className="bg-white">
       <Header />
       <section className="max-w-4xl m-auto">
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <div className="mt-2 text-center">
             {categories.map((category) => (
               <span
@@ -86,11 +86,11 @@ const BlogIndex: React.FC = () => {
               </span>
             ))}
           </div>
-          <div>
+          <div className="px-4 md:px-0 mt-4 md:mt-0">
             <input
               type="text"
               placeholder="Search post"
-              className="bg-gray-50 p-2 px-4 w-80 border border-gray-200 border-solid"
+              className="bg-gray-50 p-2 px-4 w-full md:w-80 border border-gray-200 border-solid"
               onKeyUp={(e) => {
                 const target = e.target as HTMLInputElement;
 
@@ -111,7 +111,7 @@ const BlogIndex: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className="max-w-4xl m-auto">
+      <section className="max-w-4xl mx-4 md:m-auto">
         <div className="mt-4">
           {posts.map((post) => (
             <div
@@ -129,20 +129,20 @@ const BlogIndex: React.FC = () => {
               }}
             >
               <div className="flex-grow">
-                <div className="flex items-center mt-2">
+                <div className="flex flex-col md:flex-row items-center mt-2">
                   <a href={post.url} className="text-2xl font-bold">
                     {post.attributes.title}
                   </a>
 
                   {post.category && (
-                    <div className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-100 ml-2">
+                    <div className="text-xs my-4 md:my-0 font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-100 ml-2">
                       {post.category}
                     </div>
                   )}
                 </div>
 
                 {post.attributes.date && (
-                  <div className="text-gray-500 text-sm">
+                  <div className="text-gray-500 text-sm text-center md:text-left">
                     {new Date(post.attributes.date).toLocaleDateString("en", {
                       year: "numeric",
                       month: "long",

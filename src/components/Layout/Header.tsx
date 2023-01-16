@@ -5,7 +5,7 @@ interface Props {}
 
 const Header: React.FC<Props> = () => {
   return (
-    <header className="border-b border-solid border-gray-200 mb-4">
+    <header className="border-b border-solid border-gray-200 mb-4 px-4 md:px-0">
       <nav className="max-w-4xl m-auto bg-white flex items-center justify-between py-4">
         <Logo />
         <div>

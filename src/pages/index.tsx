@@ -33,12 +33,12 @@ const Home: React.FC = () => {
         <div className="rounded-full overflow-hidden inline-block w-40 h-40">
           <img src={avatar} alt="Savas Vedova profile picture" />
         </div>
-        <h1 className="mt-8">Hi 👋</h1>
-        <h2 className="mb-8 text-center">
+        <h1 className="mt-8 mb-4 md:mb-0">Hi 👋</h1>
+        <h2 className="mb-8 text-center px-4 md:px-0">
           My name is Savas. I am software engineer working at GitLab. <br />I
           also tweet and blog about tech and startups.
         </h2>
-        <div className="grid grid-cols-2 w-full max-w-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-xl pl-4 md:pl-0">
           <Card href="/blog" title="Read my blog" />
           <Card
             href="https://twitter.com/savasvedova"

@@ -7,7 +7,7 @@ Date: 2023-01-11
 
 Recently, I started to work on [feez.ws](https://www.feez.ws), a new app that allows tracking progress in public, giving you a platform to share your journey with friends, family, and a community of like-minded individuals.
 
-I am also the founder of Stormkit, so this was a perfect case for me **to dogfood my product and host Feez on Stormkit**.
+I am also the founder of [Stormkit](https://www.stormkit.io), so this was a perfect case for me **to dogfood my product and host Feez on Stormkit**.
 
 In this blog post, I'll write about how I used [Vite](https://vitejs.dev/) with [React](https://reactjs.org/) to create a monorepo capable of server-side rendering, generating static pages and, at the same time, acting as a single page app.
 
@@ -17,11 +17,15 @@ If you're curious and would like to see the end result immediately, here's the r
 
 Before starting to work on the application, I roughly had the following structure in mind:
 
+<div class="max-w-auto" style="overflow-x: auto;"> 
+
 | Route         | Page type             | Description | SEO  |
 | ------------- | --------------------- | ----------- | ---- |
 | feez.ws       | Static page (SSG)     | Home page, terms, pricing, etc... all static content. | Yes |
 | feez.ws/my    | Single page app (SPA) | Authenticated part of the application. | No | 
 | feez.ws/:name | Dynamic page (SSR)    | User-generated content. | Yes |
+
+</div>
 
 Usually, it is a common practice to have two different repositories for the landing page and the application. However, with Feez, I wanted to keep things simple and manage only one code base. The following
 image illustrates what I wanted to achieve: 
